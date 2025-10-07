@@ -3,12 +3,24 @@ import { StarIcon } from "../lib/svgIcons";
 import type { Product } from "../types/product";
 import { diamondShapes } from "../lib/constants";
 
-export const ProductCard = ({ product }: { product: Product }) => {
+export const ProductCard = ({
+  product,
+  onClick,
+}: {
+  product: Product;
+  onClick: () => void;
+}) => {
   const [selectedShape, setSelectedShape] = useState(diamondShapes[0]);
   // const [selectedMetal, setSelectedMetal] = useState(product.metalColors[0]
 
   return (
-    <div className="product-card">
+    <div
+      className="product-card"
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick();
+      }}
+    >
       {product.isBestSeller && (
         <div className="best-seller-badge">
           <StarIcon />
@@ -48,7 +60,10 @@ export const ProductCard = ({ product }: { product: Product }) => {
                     "shape-option" +
                     (selectedShape === shape ? " selected" : "")
                   }
-                  onClick={() => setSelectedShape(shape)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedShape(shape);
+                  }}
                 >
                   <img src={`/${shape}.png`} alt="" width="45" />
                 </div>

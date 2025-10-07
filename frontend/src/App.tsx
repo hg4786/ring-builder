@@ -1,10 +1,10 @@
-import LandingPage from './components/LandingPage'
+import { Router } from './router';
 import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <LandingPage />
+      <Router />
     </div>
   )
 }

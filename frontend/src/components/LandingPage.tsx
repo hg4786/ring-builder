@@ -8,10 +8,15 @@ import {
 } from "../lib/svgIcons";
 import "./LandingPage.css";
 import { ProductCard } from "./ProductCard";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState(jewelryCategories[0].id);
-  
+  const [selectedCategory, setSelectedCategory] = useState(
+    jewelryCategories[0].id
+  );
+
+  const navigate = useNavigate();
+
   return (
     <div className="landing-page">
       {/* Category Navigation */}
@@ -87,7 +92,11 @@ const LandingPage = () => {
       {/* Products Grid */}
       <div className="products-grid">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            onClick={() => navigate(`/products/${product.id}`)}
+          />
         ))}
 
         {/* Lifetime Warranty Card */}
