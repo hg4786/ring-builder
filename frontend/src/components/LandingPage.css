@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Poppins:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Poppins:wght@300;400;500&display=swap");
 
 .landing-page {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   background: #fff;
 }
 
@@ -61,7 +61,7 @@
 .category-name {
   color: #163950;
   text-align: center;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
@@ -114,7 +114,7 @@
 
 .filter-item span {
   color: #000;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
@@ -127,13 +127,13 @@
   align-items: center;
   gap: 7px;
   border-radius: 3px;
-  border: 1px solid #E8E8E8;
+  border: 1px solid #e8e8e8;
   cursor: pointer;
 }
 
 .advance-property span {
   color: #000;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
@@ -165,8 +165,8 @@
 }
 
 .sort-label {
-  color: #3C3C3C;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  color: #3c3c3c;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
@@ -174,7 +174,7 @@
 
 .sort-value {
   color: #000;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
@@ -197,13 +197,13 @@
 }
 
 .view-grid {
-  background: #FFF;
+  background: #fff;
 }
 
 .verticle-line {
   width: 1px;
   align-self: stretch;
-  background: #D9D9D9;
+  background: #d9d9d9;
 }
 
 /* Products Grid */
@@ -229,20 +229,31 @@
 .best-seller-badge {
   position: absolute;
   top: 24px;
-  left: 21px;
+  left: -8px;
+  background: #2c003e;
+  color: white;
+  padding: 4px 16px;
+  z-index: 2;
   display: flex;
-  padding: 3px 16px;
-  justify-content: center;
   align-items: center;
   gap: 10px;
-  background: #2C003E;
-  z-index: 2;
+}
+
+.best-seller-badge::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #2c003e;
+  border-left: 8px solid transparent;
 }
 
 .best-seller-badge span {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: 'EB Garamond', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "EB Garamond", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
@@ -252,7 +263,7 @@
   display: flex;
   width: 100%;
   align-items: center;
-  background: #FAFAFA;
+  background: #fafafa;
 }
 
 .product-image {
@@ -279,7 +290,7 @@
 .product-name {
   color: #000;
   text-align: center;
-  font-family: 'EB Garamond', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "EB Garamond", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: normal;
@@ -287,9 +298,9 @@
 }
 
 .product-price {
-  color: #2C003E;
+  color: #2c003e;
   text-align: center;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: normal;
@@ -300,7 +311,7 @@
   padding: 20px 0 8px 0;
   flex-direction: column;
   gap: 23px;
-  border-top: 1px solid #D9D9D9;
+  border-top: 1px solid #d9d9d9;
 }
 
 .metal-section,
@@ -313,7 +324,7 @@
 .option-label {
   color: #000;
   text-align: center;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
@@ -331,7 +342,7 @@
 }
 
 .metal-swatch.selected {
-  border: 1px solid #3C3C3C;
+  border: 1px solid #3c3c3c;
 }
 
 .shape-options {
@@ -351,10 +362,17 @@
   justify-content: center;
   border: 1px solid transparent;
   cursor: pointer;
+  border-radius: 4px;
+}
+
+.shape-option > img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .shape-option.selected {
-  border: 1px solid #3C3C3C;
+  border: 1px solid #3c3c3c;
 }
 
 /* Warranty Card */
@@ -398,8 +416,8 @@
 }
 
 .warranty-text h2 {
-  color: #FFF;
-  font-family: 'EB Garamond', -apple-system, Roboto, Helvetica, sans-serif;
+  color: #fff;
+  font-family: "EB Garamond", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 51px;
   font-weight: 500;
   line-height: normal;
@@ -407,8 +425,8 @@
 }
 
 .warranty-text p {
-  color: #FFF;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  color: #fff;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: normal;
@@ -420,11 +438,11 @@
   padding: 10px 12px;
   justify-content: center;
   align-items: center;
-  background: #FFF;
+  background: #fff;
   border: none;
   cursor: pointer;
   color: #000;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
@@ -450,7 +468,7 @@
     background: rgba(0, 0, 0, 0.7);
     border-radius: 0 0 4px 4px;
   }
-  
+
   .filter-item span,
   .advance-property span,
   .sort-label,
