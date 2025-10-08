@@ -112,4 +112,8 @@ export const products: Product[] = [
     }
 ];
 
-export const diamondShapes = ["Round", "Radiant", "Pear"]
+export const diamondShapes = [
+  { name: "Round", icon: "/Round.png" },
+  { name: "Radiant", icon: "/Radiant.png" },
+  { name: "Pear", icon: "/Pear.png" },
+];

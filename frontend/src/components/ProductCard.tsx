@@ -10,7 +10,7 @@ export const ProductCard = ({
   product: Product;
   onClick: () => void;
 }) => {
-  const [selectedShape, setSelectedShape] = useState(diamondShapes[0]);
+  const [selectedShape, setSelectedShape] = useState(diamondShapes[0].name);
   // const [selectedMetal, setSelectedMetal] = useState(product.metalColors[0]
 
   return (
@@ -55,14 +55,14 @@ export const ProductCard = ({
             <div className="shape-options">
               {diamondShapes.map((shape) => (
                 <div
-                  key={shape}
+                  key={shape.name}
                   className={
                     "shape-option" +
-                    (selectedShape === shape ? " selected" : "")
+                    (selectedShape === shape.name ? " selected" : "")
                   }
                   onClick={(event) => {
                     event.stopPropagation();
-                    setSelectedShape(shape);
+                    setSelectedShape(shape.name);
                   }}
                 >
                   <img src={`/${shape}.png`} alt="" width="45" />
