@@ -1,40 +1,61 @@
-import { useState } from 'react';
-import { ProductGallery } from '../../components/ProductGallery';
-import { OptionSelector } from '../../components/OptionSelector';
-import { ColorSelector } from '../../components/ColorSelector';
-import { EmailForm } from '../../components/EmailForm';
-import { diamondShapes } from '../../lib/constants';
+import { useState } from "react";
+import { ProductGallery } from "../../components/ProductGallery";
+import { OptionSelector } from "../../components/OptionSelector";
+import { ColorSelector } from "../../components/ColorSelector";
+import { EmailForm } from "../../components/EmailForm";
+import { diamondShapes } from "../../lib/constants";
 
 const metals = [
-  { name: '18k Yellow Gold', color: '#FFD700' },
-  { name: '14k White Gold', color: '#E5E4E2' },
-  { name: '18k Rose Gold', color: '#E0C0B1' },
-  { name: 'Platinum', color: '#E5E4E2' },
+  { name: "18k Yellow Gold", color: "#FFD700" },
+  { name: "14k White Gold", color: "#E5E4E2" },
+  { name: "18k Rose Gold", color: "#E0C0B1" },
+  { name: "Platinum", color: "#E5E4E2" },
 ];
 
 const bands = [
-  { name: 'Plain', color: '#E5E4E2' },
-  { name: 'Diamond', color: '#E5E4E2' },
+  { name: "Plain", color: "#E5E4E2" },
+  { name: "Diamond", color: "#E5E4E2" },
 ];
 
-const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
+const FAQItem = ({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div style={{ borderBottom: '1px solid #eee', padding: '1rem 0' }}>
-      <button onClick={() => setIsOpen(!isOpen)} style={{ width: '100%', background: 'none', border: 'none', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', padding: '0.5rem 0' }}>
-        <span style={{ fontWeight: '600' }}>{question}</span>
-        <span>{isOpen ? '-' : '+'}</span>
+    <div style={{ borderBottom: "1px solid #eee", padding: "1rem 0" }}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          width: "100%",
+          background: "none",
+          border: "none",
+          textAlign: "left",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          cursor: "pointer",
+          padding: "0.5rem 0",
+        }}
+      >
+        <span style={{ fontWeight: "600" }}>{question}</span>
+        <span>{isOpen ? "-" : "+"}</span>
       </button>
-      {isOpen && <div style={{ marginTop: '0.5rem', color: '#555' }}>{answer}</div>}
+      {isOpen && (
+        <div style={{ marginTop: "0.5rem", color: "#555" }}>{answer}</div>
+      )}
     </div>
   );
-}
+};
 
 export const ProductDetails = () => {
-  const [shape, setShape] = useState('Oval');
-  const [bandWidth, setBandWidth] = useState('Standard (2.7 mm)');
-  const [metal, setMetal] = useState('18k Yellow Gold');
-  const [band, setBand] = useState('Plain');
+  const [shape, setShape] = useState("Oval");
+  const [bandWidth, setBandWidth] = useState("Standard (2.7 mm)");
+  const [metal, setMetal] = useState("18k Yellow Gold");
+  const [band, setBand] = useState("Plain");
 
   return (
     <div className="product-details-page">
@@ -181,55 +202,50 @@ export const ProductDetails = () => {
           >
             Book a Virtual Or In-Person Appointment
           </button>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-around",
-              alignItems: "center",
-              padding: "1.5rem 0",
-              borderTop: "1px solid #eee",
-              borderBottom: "1px solid #eee",
-              marginBottom: "2rem",
-            }}
-          >
-            <div style={{ textAlign: "center" }}>
-              <img
-                src="/assets/icons/quickship.png"
-                alt="Free Shipping"
-                style={{ height: "24px", marginBottom: "0.5rem" }}
-              />
-              <p style={{ margin: 0, fontSize: "0.8rem" }}>Free Shipping</p>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <img
-                src="/assets/icons/shield.png"
-                alt="Lifetime Warranty"
-                style={{ height: "24px", marginBottom: "0.5rem" }}
-              />
-              <p style={{ margin: 0, fontSize: "0.8rem" }}>Lifetime Warranty</p>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <img
-                src="/assets/icons/return.png"
-                alt="We Do Exchanges"
-                style={{ height: "24px", marginBottom: "0.5rem" }}
-              />
-              <p style={{ margin: 0, fontSize: "0.8rem" }}>We Do Exchanges</p>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <img
-                src="/assets/icons/cert.png"
-                alt="Available on Finance"
-                style={{ height: "24px", marginBottom: "0.5rem" }}
-              />
-              <p style={{ margin: 0, fontSize: "0.8rem" }}>
-                Available on Finance
-              </p>
-            </div>
-          </div>
-
           <EmailForm />
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          padding: "1.5rem 0",
+          marginBottom: "2rem",
+        }}
+      >
+        <div style={{ textAlign: "center", border: "1px solid #eee", padding: "2rem" }}>
+          <img
+            src="/assets/icons/quickship.png"
+            alt="Free Shipping"
+            style={{ height: "24px", marginBottom: "0.5rem" }}
+          />
+          <p style={{ margin: 0, fontSize: "0.8rem" }}>Free Shipping</p>
+        </div>
+        <div style={{ textAlign: "center", border: "1px solid #eee", padding: "2rem" }}>
+          <img
+            src="/assets/icons/shield.png"
+            alt="Lifetime Warranty"
+            style={{ height: "24px", marginBottom: "0.5rem" }}
+          />
+          <p style={{ margin: 0, fontSize: "0.8rem" }}>Lifetime Warranty</p>
+        </div>
+        <div style={{ textAlign: "center", border: "1px solid #eee", padding: "2rem" }}>
+          <img
+            src="/assets/icons/return.png"
+            alt="We Do Exchanges"
+            style={{ height: "24px", marginBottom: "0.5rem" }}
+          />
+          <p style={{ margin: 0, fontSize: "0.8rem" }}>We Do Exchanges</p>
+        </div>
+        <div style={{ textAlign: "center", border: "1px solid #eee", padding: "2rem" }}>
+          <img
+            src="/assets/icons/cert.png"
+            alt="Available on Finance"
+            style={{ height: "24px", marginBottom: "0.5rem" }}
+          />
+          <p style={{ margin: 0, fontSize: "0.8rem" }}>Available on Finance</p>
         </div>
       </div>
 
