@@ -8,11 +8,6 @@
 }
 {% endschema %}
 
-<div style="margin:0;padding:0;border:0;">
-  <iframe
-    src="/apps/ring-builder/grid?theme=1"
-    style="width:100%; height: {{ block.settings.height | default: '1400' }}px; border:0; display:block;"
-    loading="lazy"
-    title="Ring Builder"
-  ></iframe>
-</div>
+<div id="ring-builder-root"></div>
+{{ 'ring-builder.js' | asset_url | script_tag }}
+{{ 'ring-builder.css' | asset_url | stylesheet_tag }}

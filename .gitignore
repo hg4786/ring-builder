@@ -1,0 +1,59 @@
+# =========================
+# Node / Remix / general
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.*.local
+.env.local
+.env.development
+.env.production
+
+# Remix / build outputs
+build/
+public/build/
+.cache/
+.out/
+dist/
+coverage/
+
+# Editors / OS
+.vscode/
+.idea/
+*.swo
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs and runtime
+logs/
+*.log
+*.pid
+*.seed
+
+# Tunnel credentials, certs, and config files are sensitive.
+.cloudflared/
+cert.pem
+
+# Shopify CLI artifacts and local app config
+shopify.app.toml
+shopify.extensions.toml
+extensions/**/build/
+extensions/**/node_modules/
+extensions/**/dist/
+
+# If you use the @shopify/app template
+.env.shopify
+.secret/
+
+# =========================
+# Misc
+# =========================
+*.tgz
+*.zip
+*.bak

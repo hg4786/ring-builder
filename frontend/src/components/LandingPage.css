@@ -1,0 +1,509 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Poppins:wght@300;400;500&display=swap");
+
+.landing-page {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  background: #fff;
+}
+
+/* Category Navigation */
+.category-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 26px 0;
+}
+
+.category-grid {
+  display: flex;
+  width: 100%;
+  max-width: 1810px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.category-item {
+  width: 12rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(217, 217, 217, 0.35);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.category-item.selected {
+  border: 1px solid #163950;
+}
+
+.category-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 10px;
+  width: 100%;
+}
+
+.category-content img {
+  width: 100%;
+  max-width: 145px;
+  max-height: calc(100% - 2rem);
+  object-fit: contain;
+}
+
+.category-name {
+  color: #163950;
+  text-align: center;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.category-item:not(.selected) .category-name {
+  color: #000;
+}
+
+/* Filters Section */
+.filters-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid rgba(217, 217, 217, 0.35);
+  border-bottom: 1px solid rgba(217, 217, 217, 0.35);
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1810px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 35px;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+
+.filter-item span {
+  color: #000;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.advance-property {
+  display: flex;
+  width: fit-content;
+  padding: 6px 8px;
+  align-items: center;
+  gap: 7px;
+  border-radius: 3px;
+  border: 1px solid #e8e8e8;
+  cursor: pointer;
+}
+
+.advance-property span {
+  color: #000;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.chevron-right {
+  transform: rotate(-90deg);
+}
+
+.sort-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.quickship {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.sort-by {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+
+.sort-label {
+  color: #3c3c3c;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sort-value {
+  color: #000;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.view-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.view-grid,
+.view-list {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.view-grid {
+  background: #fff;
+}
+
+.verticle-line {
+  width: 1px;
+  align-self: stretch;
+  background: #d9d9d9;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  max-width: 1873px;
+  margin: 0 auto;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  position: relative;
+  width: 100%;
+  padding: 24px 0;
+}
+
+.best-seller-badge {
+  position: absolute;
+  top: 24px;
+  left: -8px;
+  background: #2c003e;
+  color: white;
+  padding: 4px 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.best-seller-badge::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #2c003e;
+  border-left: 8px solid transparent;
+}
+
+.best-seller-badge span {
+  color: #fff;
+  text-align: center;
+  font-family: "EB Garamond", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.product-image-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background: #fafafa;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+.product-info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.product-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.product-name {
+  color: #000;
+  text-align: center;
+  font-family: "EB Garamond", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.product-price {
+  color: #2c003e;
+  text-align: center;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.product-options {
+  display: flex;
+  padding: 20px 0 8px 0;
+  flex-direction: column;
+  gap: 23px;
+  border-top: 1px solid #d9d9d9;
+}
+
+.metal-section,
+.shape-section {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.option-label {
+  color: #000;
+  text-align: center;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.metal-swatches {
+  display: flex;
+  gap: 1px;
+}
+
+.metal-swatch {
+  height: 21px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.metal-swatch.selected {
+  border: 1px solid #3c3c3c;
+}
+
+.shape-options {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.shape-option {
+  display: flex;
+  width: 45px;
+  height: 45px;
+  padding: 5px 4px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.shape-option > img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.shape-option.selected {
+  border: 1px solid #3c3c3c;
+}
+
+/* Warranty Card */
+.warranty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  position: relative;
+  width: 100%;
+  padding: 24px 0;
+}
+
+.warranty-image {
+  width: 100%;
+  position: relative;
+}
+
+.warranty-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px 4px 0 0;
+  object-fit: cover;
+}
+
+.warranty-content {
+  position: absolute;
+  bottom: 35px;
+  left: 38.5px;
+  width: 80%;
+  max-width: 396px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.warranty-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.warranty-text h2 {
+  color: #fff;
+  font-family: "EB Garamond", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 51px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.warranty-text p {
+  color: #fff;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.warranty-button {
+  display: flex;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  align-self: flex-start;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .category-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .warranty-content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    max-width: none;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0 0 4px 4px;
+  }
+
+  .filter-item span,
+  .advance-property span,
+  .sort-label,
+  .sort-value {
+    font-size: 16px;
+  }
+
+  .warranty-button {
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-page {
+    padding: 0 10px;
+  }
+
+  .products-grid {
+    gap: 20px;
+  }
+
+  .warranty-text h2 {
+    font-size: 36px;
+  }
+
+  .warranty-text p {
+    font-size: 18px;
+  }
+
+  .product-name,
+  .product-price,
+  .option-label {
+    font-size: 18px;
+  }
+}
