@@ -10,22 +10,7 @@
 }
 {% endschema %}
 
-<div id="rb-{{ block.id }}" class="rb-wrap{% if block.settings.no_margins %} rb--no-margins{% endif %}">
-  <iframe
-    src="{{ block.settings.src }}"
-    title="Ring Builder"
-    loading="lazy"
-    style="width:100%;height:{{ block.settings.height }}px;border:0;display:block;">
-  </iframe>
-</div>
-
-<style>
-#rb-{{ block.id }} { width:100vw; margin-left:calc(50% - 50vw); }
-{% if block.settings.no_margins %}
-#rb-{{ block.id }} :where(.page-width, .container, .content-container){
-  max-width:none !important;
-  padding-left:0 !important;
-  padding-right:0 !important;
-}
-{% endif %}
-</style>
+<div id="ring-builder-root"></div>
+{{ 'ring-builder.js' | asset_url | script_tag }}
+{{ 'ring-builder.css' | asset_url | stylesheet_tag }}
+{{ 'ring-builder2.css' | asset_url | stylesheet_tag }}
