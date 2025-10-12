@@ -95,7 +95,7 @@ const LandingPage = () => {
           <ProductCard
             key={product.id}
             product={product}
-            onClick={() => navigate(`/products/${product.id}`)}
+            onClick={() => navigate(`/rings/${product.id}`)}
           />
         ))}
 

@@ -2,6 +2,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { ProductDetails } from './routes/productDetails';
 import { DiamondsPage } from './routes/diamonds';
 import LandingPage from './components/LandingPage';
+import { DiamondView } from './routes/diamondView';
 
 const router = createHashRouter([
   {
@@ -13,8 +14,12 @@ const router = createHashRouter([
     element: <DiamondsPage />,
   },
   {
-    path: '/products/:id',
+    path: '/rings/:id',
     element: <ProductDetails />,
+  },
+  {
+    path: '/diamonds/:id',
+    element: <DiamondView />,
   },
 ]);
 

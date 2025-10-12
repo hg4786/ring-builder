@@ -1,10 +1,11 @@
-
 import React from "react";
 import { DiamondFilters } from "../../components/DiamondFilters";
 import { SelectedSettingBanner } from "../../components/SelectedSettingBanner";
 import "./diamonds.css";
+import { useNavigate } from "react-router-dom";
 
 export const DiamondsPage: React.FC = () => {
+  const nvaigate = useNavigate();
   const handleFiltersChange = (filters: any) => {
     console.log("Filters changed:", filters);
     // Here you would typically update your diamond search/filter logic
@@ -31,7 +32,11 @@ export const DiamondsPage: React.FC = () => {
       <div className="diamondGridWrapper">
         <div className="diamondGrid">
           {Array.from({ length: 20 }, (_, i) => (
-            <DiamondCard key={i} index={i} />
+            <DiamondCard
+              key={i}
+              index={i}
+              onClick={() => nvaigate("/diamonds/1")}
+            />
           ))}
         </div>
       </div>
@@ -40,8 +45,14 @@ export const DiamondsPage: React.FC = () => {
 };
 
 // Helper component for the Diamond Card placeholder
-const DiamondCard = ({ index }: { index: number }) => (
-  <div className="diamondCard">
+const DiamondCard = ({
+  index,
+  onClick,
+}: {
+  index: number;
+  onClick?: () => void;
+}) => (
+  <div className="diamondCard" onClick={onClick}>
     {/* Diamond Image Container */}
     <div className="cardImageBox">
       <img
