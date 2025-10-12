@@ -1,0 +1,119 @@
+/* --- DualRangeSlider Styles (New) --- */
+.dual-range-slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.range-label-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 25px;
+  font-family: "Poppins", sans-serif;
+}
+
+.range-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  white-space: nowrap;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 8px;
+  flex-grow: 1;
+}
+
+.currency-prefix {
+  color: #666;
+  margin-right: 4px;
+}
+
+.input-field {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 0;
+}
+
+.separator {
+  font-size: 20px;
+  color: #666;
+}
+
+/* Multi-Range Slider Track/Bar Styling */
+.multi-range-slider {
+  position: relative;
+  width: 100%;
+  height: 10px; /* This acts as the track */
+  border-radius: 5px;
+  background-color: #ccc; /* Default track color */
+  margin-top: 10px;
+}
+
+.range-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks to pass through to the other input */
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.range-input::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 10px;
+  background: none; /* Hide native track, rely on parent div background gradient */
+}
+
+.range-input::-moz-range-track {
+  -moz-appearance: none;
+  height: 10px;
+  background: none;
+}
+
+/* --- POINTER STYLING FIX (White center, Purple border, perfect alignment) --- */
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px; /* Sizing: 20px diameter */
+  width: 20px;
+  border-radius: 50%;
+  background: #ffffff; /* White center fill */
+  cursor: pointer;
+  margin-top: -5px; /* Alignment: Calculated to center 20px thumb over 10px track */
+  pointer-events: all;
+  border: 2px solid #50056e; /* Purple border */
+  box-shadow: none;
+}
+
+.range-input::-moz-range-thumb {
+  -moz-appearance: none;
+  height: 20px; /* Sizing: 20px diameter */
+  width: 20px;
+  border-radius: 50%;
+  background: #ffffff; /* White center fill */
+  cursor: pointer;
+  margin-top: -5px; /* Alignment: Calculated to center 20px thumb over 10px track */
+  pointer-events: all;
+  border: 2px solid #50056e; /* Purple border */
+  box-shadow: none;
+}
+/* --- END POINTER STYLING FIX --- */
+
+/* Ensure the min slider is visually layered above the max slider for thumb interaction */
+.min-slider {
+  z-index: 5;
+}

@@ -1,0 +1,302 @@
+/*
+  Base styles for the DiamondsPage component, using CSS Modules
+  All styles are written to be responsive, starting with mobile-first approach.
+*/
+
+/* General Page Container */
+.diamondsPage {
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif; /* Defaulting body font */
+}
+
+/* Hero Section */
+.heroSection {
+  display: flex;
+  width: 100%;
+  padding: 1rem; /* Responsive padding */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, #000 -30.8%, #2c003e 100%);
+  height: auto; /* Auto height for mobile content */
+  position: relative;
+}
+
+/* Hero Content Wrapper */
+.heroContent {
+  display: flex;
+  width: 100%;
+  max-width: 1570px;
+  padding: 0.5rem; /* Responsive padding */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Responsive gap */
+  border-radius: 22px;
+  border: 1px solid #fff;
+}
+
+/* Setting Title and Arrow Group */
+.settingTitleGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  /* Ensure it takes full width before large screen */
+  width: 100%;
+}
+
+.settingTitle {
+  font-family: "EB Garamond", serif;
+  font-size: 1.5rem; /* Mobile font size */
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Arrow SVG (Hidden by default, shown on large screens) */
+.heroArrow {
+  display: none;
+}
+
+/* Ring Image and Text Details Container */
+.ringDetailsContainer {
+  display: flex;
+  flex-direction: column; /* Stack on mobile */
+  align-items: center;
+  gap: 1rem; /* Responsive gap */
+  flex-grow: 1;
+  width: 100%;
+}
+
+.ringImage {
+  width: 180px; /* Smaller image on mobile */
+  height: auto;
+  object-fit: contain;
+}
+
+.ringTextBox {
+  display: flex;
+  width: 100%; /* Full width on mobile */
+  flex-direction: column;
+  align-items: center; /* Center align text on mobile */
+  gap: 5px;
+}
+
+.ringHeading {
+  font-family: "EB Garamond", serif;
+  font-size: 1.75rem; /* Mobile font size */
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.ringAttributes {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Responsive gap */
+  font-size: 1rem; /* Mobile font size */
+}
+
+.ringAttribute {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Modify Button */
+.modifyButton {
+  display: flex;
+  width: 100%; /* Full width on mobile */
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modifyButton:hover {
+  background: #f0f0f0;
+}
+
+.modifyButtonText {
+  font-family: "EB Garamond", serif;
+  font-size: 1.25rem; /* Mobile font size */
+  color: #50056e;
+  white-space: nowrap;
+}
+
+/* Diamond Grid Section */
+.diamondGridWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 1rem; /* Mobile padding */
+}
+
+.diamondGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  max-width: 1875px;
+  width: 100%;
+}
+
+/* Diamond Card */
+.diamondCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  padding: 24px 0;
+  border-bottom: 1px solid #e5e7eb; /* Separator for mobile list view */
+}
+
+.cardImageBox {
+  width: 100%;
+  max-width: 459px;
+  height: auto;
+  aspect-ratio: 1; /* Makes it square */
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.75rem; /* Added rounded corners for style */
+}
+
+.cardImage {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+
+.cardDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.cardTitle {
+  font-family: "EB Garamond", serif;
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;
+  font-weight: 600;
+}
+
+.cardPrice {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: #2c003e;
+  margin: 0;
+  font-weight: bold;
+}
+
+.card4Cs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Mobile gap */
+  font-size: 1rem; /* Mobile font size */
+}
+
+.card4Cs span {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  white-space: nowrap;
+}
+
+/* Tablet (sm breakpoint: 640px) */
+@media (min-width: 640px) {
+  .heroSection {
+    padding: 19px 0;
+    height: 152px;
+  }
+
+  .heroContent {
+    gap: 10px;
+  }
+
+  .settingTitleGroup {
+    flex-direction: row;
+    gap: 15px;
+    width: auto;
+  }
+
+  .settingTitle {
+    font-size: 36px;
+  }
+
+  .ringDetailsContainer {
+    flex-direction: row;
+    gap: 1rem;
+    width: auto;
+  }
+
+  .ringImage {
+    width: 229px;
+    height: 114px;
+  }
+
+  .ringTextBox {
+    align-items: flex-start;
+    width: auto;
+  }
+
+  .ringHeading {
+    font-size: 36px;
+    text-align: left;
+  }
+
+  .ringAttributes {
+    gap: 28px;
+    font-size: 20px;
+  }
+
+  .modifyButton {
+    width: 234px;
+  }
+
+  .modifyButtonText {
+    font-size: 24px;
+  }
+
+  .diamondGridWrapper {
+    padding: 40px;
+  }
+
+  .diamondCard {
+    border-bottom: none;
+    padding: 24px;
+  }
+
+  .cardTitle,
+  .cardPrice {
+    font-size: 24px;
+  }
+
+  .card4Cs {
+    gap: 42px;
+    font-size: 20px;
+  }
+}
+
+/* Desktop (lg breakpoint: 1024px) */
+@media (min-width: 1024px) {
+  .heroContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 11px;
+    gap: 20px;
+  }
+
+  .heroArrow {
+    display: block; /* Show arrow on desktop */
+  }
+}
