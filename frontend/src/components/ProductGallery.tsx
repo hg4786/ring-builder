@@ -17,7 +17,7 @@ const galleryStyles: React.CSSProperties = {
 const imageStyle: React.CSSProperties = {
   width: '100%',
   height: 'auto',
-  aspectRatio: '1 / 1',
+  aspectRatio: '5 / 6',
   objectFit: 'cover',
   borderRadius: '8px'
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface Option {
   name: string;
@@ -12,24 +12,41 @@ interface OptionSelectorProps {
   onSelectOption: (option: string) => void;
 }
 
-export const OptionSelector: React.FC<OptionSelectorProps> = ({ title, options, selectedOption, onSelectOption }) => {
+export const OptionSelector: React.FC<OptionSelectorProps> = ({
+  title,
+  options,
+  selectedOption,
+  onSelectOption,
+}) => {
   return (
-    <div style={{ marginBottom: '20px' }}>
-      <h3 style={{ marginBottom: '10px' }}>{title}</h3>
-      <div style={{ display: 'flex', gap: '10px' }}>
-        {options.map(option => (
+    <div style={{ marginBottom: "20px" }}>
+      <h3 style={{ marginBottom: "10px" }}>{title}</h3>
+      <div style={{ display: "flex", gap: "10px" }}>
+        {options.map((option) => (
           <div
             key={option.name}
             onClick={() => onSelectOption(option.name)}
             style={{
-              padding: '10px',
-              border: selectedOption === option.name ? '2px solid #6a0dad' : '1px solid #ccc',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              textAlign: 'center'
+              padding: "8px",
+              outline:
+                selectedOption === option.name ? "1px solid #3C3C3C" : "none",
+              borderRadius: "100px",
+              cursor: "pointer",
+              textAlign: "center",
+              width: "50px",
+              height: "50px",
             }}
           >
-            <img src={option.icon} alt={option.name} style={{ width: '40px', height: '40px' }} />
+            <img
+              src={option.icon}
+              alt={option.name}
+              style={{
+                objectFit: "contain",
+                objectPosition: "center",
+                maxWidth: "100%",
+                maxHeight: "100%",
+              }}
+            />
           </div>
         ))}
       </div>

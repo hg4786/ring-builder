@@ -52,8 +52,8 @@ const FAQItem = ({
 };
 
 export const ProductDetails = () => {
-  const [shape, setShape] = useState("Oval");
-  const [bandWidth, setBandWidth] = useState("Standard (2.7 mm)");
+  const [shape, setShape] = useState(diamondShapes[0].name);
+  const [bandWidth, setBandWidth] = useState(diamondShapes[0].name);
   const [metal, setMetal] = useState("18k Yellow Gold");
   const [band, setBand] = useState("Plain");
 

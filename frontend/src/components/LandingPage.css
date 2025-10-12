@@ -339,6 +339,7 @@
 }
 
 .metal-swatch {
+  color: transparent;
   height: 21px;
   flex: 1;
   cursor: pointer;

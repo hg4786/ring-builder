@@ -46,7 +46,7 @@ export const ProductCard = ({
                     colorIndex === product.selectedMetal ? "selected" : ""
                   }`}
                   style={{ backgroundColor: color }}
-                />
+                >.</div>
               ))}
             </div>
           </div>
@@ -65,7 +65,7 @@ export const ProductCard = ({
                     setSelectedShape(shape.name);
                   }}
                 >
-                  <img src={`/${shape}.png`} alt="" width="45" />
+                  <img src={shape.icon} alt="" width="45" />
                 </div>
               ))}
             </div>
