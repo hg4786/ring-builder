@@ -9,10 +9,16 @@ export default defineConfig({
     outDir: "../extensions/ring-builder-ui/assets",
     emptyOutDir: false,
     rollupOptions: {
-      input: path.resolve(__dirname, "src/main.tsx"), // your entry point
+      input: path.resolve(__dirname, "src/main.tsx"),
       output: {
         entryFileNames: "ring-builder.js",
-        assetFileNames: "ring-builder.css",
+        assetFileNames: (assetInfo) => {
+          // Separate images and CSS correctly
+          if (/\.(css)$/.test(assetInfo.name ?? "")) {
+            return "ring-builder.css";
+          }
+          return "assets/[name]-[hash][extname]";
+        },
       },
     },
   },
