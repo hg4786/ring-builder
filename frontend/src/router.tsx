@@ -1,25 +1,27 @@
-import { createHashRouter, RouterProvider } from 'react-router-dom';
-import { ProductDetails } from './routes/productDetails';
-import { DiamondsPage } from './routes/diamonds';
-import LandingPage from './components/LandingPage';
-import { DiamondView } from './routes/diamondView';
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import { lazy } from "react";
+
+const LandingPage = lazy(() => import("./routes/LandingPage"));
+const DiamondsPage = lazy(() => import("./routes/diamonds"));
+const DiamondView = lazy(() => import("./routes/diamondView"));
+const RingView = lazy(() => import("./routes/ringView"));
 
 const router = createHashRouter([
   {
-    path: '/',
-    element: <LandingPage />,
+    path: "/",
+    Component: LandingPage,
   },
   {
-    path: '/diamonds',
-    element: <DiamondsPage />,
+    path: "/diamonds",
+    Component: DiamondsPage,
   },
   {
-    path: '/rings/:id',
-    element: <ProductDetails />,
+    path: "/rings/:id",
+    Component: RingView,
   },
   {
-    path: '/diamonds/:id',
-    element: <DiamondView />,
+    path: "/diamonds/:id",
+    Component: DiamondView,
   },
 ]);
 

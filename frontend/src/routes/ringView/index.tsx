@@ -4,12 +4,8 @@ import { OptionSelector } from "../../components/OptionSelector";
 import { ColorSelector } from "../../components/ColorSelector";
 import { EmailForm } from "../../components/EmailForm";
 import { diamondShapes } from "../../lib/constants";
-import { ProductAfterSaleSection } from "../../components/productDetails/ProductAfterSaleSection";
-import { ClientReviews } from "../../components/productDetails/ClientReviews";
-import { CustomRing } from "../../components/productDetails/CustomRing";
-import { RingYouMayLove } from "../../components/productDetails/productDetails/RingYouMayLove";
-import { YouSaidYes } from "../../components/productDetails/YouSaidYes";
-import { FAQSection } from "../../components/productDetails/FAQSection";
+import { ProductView } from "../../components/productView";
+import { useNavigate } from "react-router-dom";
 
 const metals = [
   { name: "18k Yellow Gold", color: "#FFD700" },
@@ -23,69 +19,50 @@ const bands = [
   { name: "Diamond", color: "#E5E4E2" },
 ];
 
-export const ProductDetails = () => {
+export default function RingView() {
+  const navigate = useNavigate();
   const [shape, setShape] = useState(diamondShapes[0].name);
   const [bandWidth, setBandWidth] = useState(diamondShapes[0].name);
   const [metal, setMetal] = useState("18k Yellow Gold");
   const [band, setBand] = useState("Plain");
 
   return (
-    <div className="product-details-page">
+    <ProductView>
       <style>{`
-        .product-details-page {
-          font-family: 'Poppins', sans-serif;
-          color: #111;
-        }
-        .main-container {
+        .ring-view-page.main-container {
           display: flex;
           padding: 2rem;
           gap: 2rem;
           max-width: 1400px;
           margin: 0 auto;
         }
-        .left-column {
+        .ring-view-page .left-column {
           flex: 1 1 60%;
         }
-        .right-column {
+        .ring-view-page .right-column {
           flex: 1 1 40%;
           display: flex;
           flex-direction: column;
         }
-        .section {
-          padding: 2rem;
-          max-width: 1400px;
-          margin: 0 auto;
-        }
-        .section-title {
-          text-align: center;
-          font-size: 2rem;
-          font-weight: 500;
-          margin-bottom: 2rem;
-          font-family: 'Serif', 'Times New Roman';
-        }
-        .reviews-section {
+        .ring-view-page .reviews-section {
           background-color: #f9f9f9;
         }
-        .rings-grid, .gallery-grid {
+        .ring-view-page .rings-grid, .gallery-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 1.5rem;
         }
-        .faq-section {
-          max-width: 900px;
-        }
-
         @media (max-width: 992px) {
-          .main-container {
+          .ring-view-page.main-container {
             flex-direction: column;
           }
-          .left-column, .right-column {
+          .ring-view-page .left-column, .right-column {
             flex: 1 1 100%;
           }
         }
       `}</style>
 
-      <div className="main-container">
+      <div className="ring-view-page main-container">
         <div className="left-column">
           <ProductGallery />
         </div>
@@ -150,6 +127,7 @@ export const ProductDetails = () => {
               fontSize: "1rem",
               fontWeight: "600",
             }}
+            onClick={() => navigate("/diamonds")}
           >
             Select Stone For Your Ring
           </button>
@@ -171,18 +149,6 @@ export const ProductDetails = () => {
           <EmailForm />
         </div>
       </div>
-
-      <ProductAfterSaleSection />
-
-      <ClientReviews />
-
-      <CustomRing />
-
-      <RingYouMayLove />
-
-      <YouSaidYes />
-
-      <FAQSection />
-    </div>
+    </ProductView>
   );
 };

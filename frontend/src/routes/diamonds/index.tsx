@@ -4,16 +4,15 @@ import { SelectedSettingBanner } from "../../components/SelectedSettingBanner";
 import "./diamonds.css";
 import { useNavigate } from "react-router-dom";
 
-export const DiamondsPage: React.FC = () => {
-  const nvaigate = useNavigate();
+const DiamondsPage: React.FC = () => {
+  const navigate = useNavigate();
   const handleFiltersChange = (filters: any) => {
     console.log("Filters changed:", filters);
     // Here you would typically update your diamond search/filter logic
   };
 
   const handleModify = () => {
-    console.log("Modify button clicked");
-    // Handle the modify action here
+    navigate("/rings/1")
   };
 
   return (
@@ -35,7 +34,7 @@ export const DiamondsPage: React.FC = () => {
             <DiamondCard
               key={i}
               index={i}
-              onClick={() => nvaigate("/diamonds/1")}
+              onClick={() => navigate("/diamonds/1")}
             />
           ))}
         </div>
@@ -43,6 +42,8 @@ export const DiamondsPage: React.FC = () => {
     </div>
   );
 };
+
+export default DiamondsPage;
 
 // Helper component for the Diamond Card placeholder
 const DiamondCard = ({
