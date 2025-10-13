@@ -1,11 +1,16 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import { lazy } from "react";
+// import { lazy } from "react";
 import Layout from "./Layout";
 
-const LandingPage = lazy(() => import("./routes/LandingPage"));
-const DiamondsPage = lazy(() => import("./routes/diamonds"));
-const DiamondView = lazy(() => import("./routes/diamondView"));
-const RingView = lazy(() => import("./routes/ringView"));
+import LandingPage from "./routes/LandingPage";
+import DiamondsPage from "./routes/diamonds";
+import DiamondView from "./routes/diamondView";
+import RingView from "./routes/ringView";
+
+// const LandingPage = lazy(() => import("./routes/LandingPage"));
+// const DiamondsPage = lazy(() => import("./routes/diamonds"));
+// const DiamondView = lazy(() => import("./routes/diamondView"));
+// const RingView = lazy(() => import("./routes/ringView"));
 
 const router = createHashRouter([
   {
