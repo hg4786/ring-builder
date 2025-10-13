@@ -1,4 +1,4 @@
-.diamond-detail-section {
+.diamondDetailSection {
   width: 100%;
   max-width: 1921px;
   margin: 0 auto;
@@ -12,7 +12,7 @@
 }
 
 /* Benefits Banner */
-.benefits-banner {
+.benefitsBanner {
   width: 100%;
   max-width: 1090px;
   height: 189px;
@@ -21,14 +21,14 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
-.benefits-container {
+.benefitsContainer {
   width: 100%;
   height: 100%;
   position: relative;
   padding: 40px;
 }
 
-.benefits-grid {
+.benefitsGrid {
   display: flex;
   width: 100%;
   max-width: 1027px;
@@ -40,7 +40,7 @@
   height: 26px;
 }
 
-.benefit-text {
+.benefitText {
   color: #3c3c3c;
   font-family:
     "EB Garamond",
@@ -53,7 +53,7 @@
   line-height: normal;
 }
 
-.benefits-container svg {
+.benefitsContainer svg {
   position: absolute;
   left: 81px;
   top: 44px;
@@ -63,7 +63,7 @@
 }
 
 /* Main Content */
-.main-content {
+.mainContent {
   width: 100%;
   padding: 10px;
   display: flex;
@@ -72,7 +72,7 @@
   gap: 10px;
 }
 
-.content-wrapper {
+.contentWrapper {
   width: 100%;
   max-width: 1829px;
   display: flex;
@@ -82,7 +82,7 @@
 }
 
 /* Navigation */
-.navigation-section {
+.navigationSection {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -90,7 +90,7 @@
   gap: 10px;
 }
 
-.browse-diamonds-btn {
+.browseDiamondsBtn {
   display: flex;
   width: 272px;
   height: 47px;
@@ -112,14 +112,14 @@
   font-weight: 300;
 }
 
-.browse-diamonds-btn svg {
+.browseDiamondsBtn svg {
   width: 14px;
   height: 14px;
   transform: rotate(90deg);
 }
 
 /* Product Layout */
-.product-layout {
+.productLayout {
   display: flex;
   align-items: flex-start;
   gap: 25px;
@@ -127,13 +127,13 @@
 }
 
 /* Image Gallery */
-.image-gallery {
+.imageGallery {
   display: flex;
   align-items: center;
   gap: 19px;
 }
 
-.image-column-left {
+.imageColumnLeft {
   display: flex;
   width: 533px;
   flex-direction: column;
@@ -141,7 +141,7 @@
   gap: 20px;
 }
 
-.image-view {
+.imageView {
   display: flex;
   height: 445px;
   padding: 5px;
@@ -153,7 +153,7 @@
   position: relative;
 }
 
-.view-360 {
+.view360 {
   height: 445px;
   background:
     url("https://api.builder.io/api/v1/image/assets/TEMP/9ed5488fe5e750fb475a860f58a9a95e849d594b?width=1066")
@@ -161,15 +161,15 @@
     #fafafa;
 }
 
-.view-front {
+.viewFront {
   height: 416px;
 }
 
-.view-back {
+.viewBack {
   height: 416px;
 }
 
-.view-overlay {
+.viewOverlay {
   display: flex;
   padding: 10px;
   justify-content: center;
@@ -179,17 +179,17 @@
   position: absolute;
 }
 
-.view-front .view-overlay {
+.viewFront .viewOverlay {
   left: 132px;
   top: 172px;
 }
 
-.view-back .view-overlay {
+.viewBack .viewOverlay {
   left: 155px;
   top: 172px;
 }
 
-.view-label {
+.viewLabel {
   color: #fff;
   font-family:
     "EB Garamond",
@@ -202,7 +202,7 @@
   line-height: 51px;
 }
 
-.image-column-right {
+.imageColumnRight {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -210,7 +210,7 @@
   height: 1312px;
 }
 
-.main-image-container {
+.mainImageContainer {
   display: flex;
   width: 538px;
   height: 606px;
@@ -222,14 +222,14 @@
   position: relative;
 }
 
-.main-image {
+.mainImage {
   width: 428px;
   height: 428px;
   object-fit: contain;
   aspect-ratio: 1/1;
 }
 
-.main-view-overlay {
+.mainViewOverlay {
   display: flex;
   padding: 10px;
   justify-content: center;
@@ -241,7 +241,7 @@
   bottom: 272px;
 }
 
-.zoom-overlay {
+.zoomOverlay {
   display: flex;
   padding: 10px;
   justify-content: center;
@@ -254,7 +254,7 @@
 }
 
 /* Product Information */
-.product-info {
+.productInfo {
   display: flex;
   width: 714px;
   flex-direction: column;
@@ -262,7 +262,7 @@
   gap: 51px;
 }
 
-.product-header {
+.productHeader {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -270,7 +270,7 @@
   width: 100%;
 }
 
-.product-title {
+.productTitle {
   color: #000;
   font-family:
     "EB Garamond",
@@ -284,7 +284,7 @@
   margin: 0;
 }
 
-.product-type {
+.productType {
   color: #060606;
   font-family:
     "EB Garamond",
@@ -298,7 +298,7 @@
   margin: 0;
 }
 
-.product-price {
+.productPrice {
   color: #2c003e;
   font-family:
     "Poppins",
@@ -320,7 +320,7 @@
   width: 100%;
 }
 
-.spec-item {
+.specItem {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -328,7 +328,7 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
-.spec-button {
+.specButton {
   display: flex;
   padding: 20px 0;
   justify-content: space-between;
@@ -348,13 +348,13 @@
   color: #000;
 }
 
-.specs-section {
+.specsSection {
   padding-top: 10px;
   border-top: 1px solid #a9a9a9;
   width: 100%;
 }
 
-.specs-button {
+.specsButton {
   display: flex;
   padding: 20px 0;
   justify-content: space-between;
@@ -375,7 +375,7 @@
 }
 
 /* Action Buttons */
-.action-buttons {
+.actionButtons {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -383,7 +383,7 @@
   width: 100%;
 }
 
-.view-certificate-btn {
+.viewCertificateBtn {
   display: flex;
   height: 74px;
   padding: 10px 30px;
@@ -406,7 +406,7 @@
   cursor: pointer;
 }
 
-.choose-diamond-btn {
+.chooseDiamondBtn {
   display: flex;
   height: 74px;
   padding: 10px 30px;
@@ -430,7 +430,7 @@
 }
 
 /* Email Section */
-.email-section {
+.emailSection {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -438,13 +438,13 @@
   gap: 32px;
 }
 
-.email-header {
+.emailHeader {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.email-title {
+.emailTitle {
   color: #000;
   font-family:
     "Poppins",
@@ -459,7 +459,7 @@
   margin: 0;
 }
 
-.email-subtitle {
+.emailSubtitle {
   color: #000;
   font-family:
     "Poppins",
@@ -473,7 +473,7 @@
   margin: 0;
 }
 
-.email-form {
+.emailForm {
   display: flex;
   height: 71px;
   align-items: center;
@@ -481,7 +481,7 @@
   width: 100%;
 }
 
-.email-input {
+.emailInput {
   display: flex;
   width: 462px;
   padding: 10px;
@@ -502,11 +502,11 @@
   height: 100%;
 }
 
-.email-input::placeholder {
+.emailInput::placeholder {
   color: #000;
 }
 
-.email-submit-btn {
+.emailSubmitBtn {
   display: flex;
   width: 232px;
   padding: 10px;
@@ -531,95 +531,95 @@
 
 /* Responsive Design */
 @media (max-width: 1400px) {
-  .product-layout {
+  .productLayout {
     flex-direction: column;
     gap: 40px;
   }
 
-  .image-gallery {
+  .imageGallery {
     flex-direction: column;
     width: 100%;
     gap: 20px;
   }
 
-  .image-column-left,
-  .image-column-right {
+  .imageColumnLeft,
+  .imageColumnRight {
     width: 100%;
     max-width: 600px;
   }
 
-  .main-image-container {
+  .mainImageContainer {
     width: 100%;
     height: 400px;
   }
 
-  .product-info {
+  .productInfo {
     width: 100%;
     max-width: 600px;
   }
 }
 
 @media (max-width: 768px) {
-  .benefits-grid {
+  .benefitsGrid {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
   }
 
-  .benefit-text {
+  .benefitText {
     font-size: 16px;
   }
 
-  .view-label {
+  .viewLabel {
     font-size: 24px;
   }
 
-  .product-title {
+  .productTitle {
     font-size: 28px;
   }
 
-  .product-type,
-  .product-price {
+  .productType,
+  .productPrice {
     font-size: 20px;
   }
 
-  .email-form {
+  .emailForm {
     flex-direction: column;
     height: auto;
     gap: 10px;
   }
 
-  .email-input,
-  .email-submit-btn {
+  .emailInput,
+  .emailSubmitBtn {
     width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .browse-diamonds-btn {
+  .browseDiamondsBtn {
     width: 100%;
   }
 
-  .image-view {
+  .imageView {
     height: 250px;
   }
 
-  .main-image-container {
+  .mainImageContainer {
     height: 300px;
   }
 
-  .main-image {
+  .mainImage {
     width: 250px;
     height: 250px;
   }
 
-  .spec-button,
-  .specs-button {
+  .specButton,
+  .specsButton {
     font-size: 18px;
   }
 
-  .view-certificate-btn,
-  .choose-diamond-btn {
+  .viewCertificateBtn,
+  .chooseDiamondBtn {
     font-size: 20px;
     height: 60px;
   }
