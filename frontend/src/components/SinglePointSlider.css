@@ -1,10 +1,7 @@
-/* --- DualRangeSlider Styles (New) --- */
-.dual-range-slider-container {
+.single-point-slider-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -33,11 +30,6 @@
   flex-grow: 1;
 }
 
-.currency-prefix {
-  color: #666;
-  margin-right: 4px;
-}
-
 .input-field {
   border: none;
   outline: none;
@@ -46,18 +38,12 @@
   padding: 0;
 }
 
-.separator {
-  font-size: 20px;
-  color: #666;
-}
-
-/* Multi-Range Slider Track/Bar Styling */
-.multi-range-slider {
+.single-range-slider {
   position: relative;
   width: 100%;
-  height: 10px; /* This acts as the track */
+  height: 10px;
   border-radius: 5px;
-  background-color: #ccc; /* Default track color */
+  background-color: #ccc;
   margin-top: 10px;
 }
 
@@ -65,7 +51,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Allows clicks to pass through to the other input */
+  pointer-events: none;
   appearance: none;
   -webkit-appearance: none;
   border: none;
@@ -77,7 +63,7 @@
 .range-input::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   height: 10px;
-  background: none; /* Hide native track, rely on parent div background gradient */
+  background: none;
 }
 
 .range-input::-moz-range-track {
@@ -86,35 +72,28 @@
   background: none;
 }
 
-/* --- POINTER STYLING FIX (White center, Purple border, perfect alignment) --- */
 .range-input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 20px; /* Sizing: 20px diameter */
+  height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #ffffff; /* White center fill */
+  background: #ffffff;
   cursor: pointer;
-  margin-top: -5px; /* Alignment: Calculated to center 20px thumb over 10px track */
+  margin-top: -5px;
   pointer-events: all;
-  border: 2px solid #50056e; /* Purple border */
+  border: 2px solid #50056e;
   box-shadow: none;
 }
 
 .range-input::-moz-range-thumb {
   -moz-appearance: none;
-  height: 20px; /* Sizing: 20px diameter */
+  height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #ffffff; /* White center fill */
+  background: #ffffff;
   cursor: pointer;
-  margin-top: -5px; /* Alignment: Calculated to center 20px thumb over 10px track */
+  margin-top: -5px;
   pointer-events: all;
-  border: 2px solid #50056e; /* Purple border */
+  border: 2px solid #50056e;
   box-shadow: none;
-}
-/* --- END POINTER STYLING FIX --- */
-
-/* Ensure the min slider is visually layered above the max slider for thumb interaction */
-.min-slider {
-  z-index: 5;
 }

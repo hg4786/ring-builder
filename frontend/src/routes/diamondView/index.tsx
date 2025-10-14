@@ -3,15 +3,21 @@ import styles from "./DiamondView.module.css";
 import { useState } from "react";
 import { ChevronDownIcon } from "../../lib/svgIcons";
 import { ProductView } from "../../components/productView";
+import { SinglePointSlider } from "../../components/SinglePointSlider";
 
 export default function DiamondView() {
   const navigate = useNavigate();
 
-  const [expandedSpec, setExpandedSpec] = useState<string | null>(null);
+  const [expandedSpecs, setExpandedSpecs] = useState<string[]>([]);
   const [email, setEmail] = useState("");
 
   const toggleSpec = (spec: string) => {
-    setExpandedSpec(expandedSpec === spec ? null : spec);
+    const index = expandedSpecs.findIndex((sp) => sp == spec);
+    const clonedSpecs =
+      index != -1
+        ? expandedSpecs.filter((sp) => sp != spec)
+        : [...expandedSpecs, spec];
+    setExpandedSpecs(clonedSpecs);
   };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -78,48 +84,48 @@ export default function DiamondView() {
               {/* Image Gallery */}
               <div className={styles.imageGallery}>
                 {/* <div className={styles.imageColumnLeft}> */}
-                  <div className={`${styles.imageView} ${styles.view360}`}>
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
-                      alt="Diamond ring"
-                      className={styles.mainImage}
-                    />
-                    <div className={styles.viewOverlay}>
-                      <span className={styles.viewLabel}>360° VIEW</span>
-                    </div>
+                <div className={`${styles.imageView} ${styles.view360}`}>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
+                    alt="Diamond ring"
+                    className={styles.mainImage}
+                  />
+                  <div className={styles.viewOverlay}>
+                    <span className={styles.viewLabel}>360° VIEW</span>
                   </div>
-                  <div className={`${styles.imageView} ${styles.viewFront}`}>
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
-                      alt="Diamond ring"
-                      className={styles.mainImage}
-                    />
-                    <div className={styles.viewOverlay}>
-                      <span className={styles.viewLabel}>FRONT VIEW</span>
-                    </div>
+                </div>
+                <div className={`${styles.imageView} ${styles.viewFront}`}>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
+                    alt="Diamond ring"
+                    className={styles.mainImage}
+                  />
+                  <div className={styles.viewOverlay}>
+                    <span className={styles.viewLabel}>FRONT VIEW</span>
                   </div>
-                  <div className={`${styles.imageView} ${styles.viewBack}`}>
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
-                      alt="Diamond ring"
-                      className={styles.mainImage}
-                    />
-                    <div className={styles.viewOverlay}>
-                      <span className={styles.viewLabel}>BACK VIEW</span>
-                    </div>
+                </div>
+                <div className={`${styles.imageView} ${styles.viewBack}`}>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
+                    alt="Diamond ring"
+                    className={styles.mainImage}
+                  />
+                  <div className={styles.viewOverlay}>
+                    <span className={styles.viewLabel}>BACK VIEW</span>
                   </div>
+                </div>
                 {/* </div> */}
                 {/* <div className={styles.imageColumnRight}> */}
-                  <div className={styles.mainImageContainer}>
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
-                      alt="Diamond ring"
-                      className={styles.mainImage}
-                    />
-                    <div className={styles.mainViewOverlay}>
-                      <span className={styles.viewLabel}>ROTATE VIEW</span>
-                    </div>
+                <div className={styles.mainImageContainer}>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
+                    alt="Diamond ring"
+                    className={styles.mainImage}
+                  />
+                  <div className={styles.mainViewOverlay}>
+                    <span className={styles.viewLabel}>ROTATE VIEW</span>
                   </div>
+                </div>
                 {/* </div> */}
               </div>
               {/* Product Information */}
@@ -132,42 +138,178 @@ export default function DiamondView() {
                   <p className={styles.productPrice}>From $3,530</p>
                 </div>
                 <div className={styles.specifications}>
-                  <div className={styles.specItem}>
-                    <button
-                      className={styles.specButton}
-                      onClick={() => toggleSpec("size")}
+                  <SpecAccordion title="Diamond Size : 1.31 CT">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "2rem",
+                      }}
                     >
-                      <span>Diamond Size : 1.31 CT</span>
-                      <ChevronDownIcon />
-                    </button>
-                  </div>
-                  <div className={styles.specItem}>
-                    <button
-                      className={styles.specButton}
-                      onClick={() => toggleSpec("color")}
+                      <p>
+                        The carat is the unit of weight of a diamond. Carat is
+                        often confused with size even though it is actually a
+                        measure of weight. One carat equals 200 milligrams or
+                        0.2 grams. The scale below illustrates the typical size
+                        relationship between diamonds of increasing carat
+                        weights. Remember that while the measurements below are
+                        typical, every diamond is unique.
+                      </p>
+                      <div>
+                        <SinglePointSlider
+                          min={1}
+                          max={10}
+                          defaultValue={5}
+                          onChange={() => {}}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          fontWeight: "300",
+                          fontStyle: "Light", // Note: CSS typically uses 'normal', 'italic', or 'oblique' for fontStyle.
+                          fontSize: "20px",
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
+                          textDecoration: "underline",
+                          textDecorationStyle: "solid",
+                          // textDecorationOffset: "0%",
+                          textDecorationThickness: "0%",
+                          textDecorationSkipInk: "auto",
+                        }}
+                      >
+                        Learn About Carat
+                      </div>
+                    </div>
+                  </SpecAccordion>
+                  <SpecAccordion title="Diamond Color : D">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "2rem",
+                      }}
                     >
-                      <span>Diamond Color : D</span>
-                      <ChevronDownIcon />
-                    </button>
-                  </div>
-                  <div className={styles.specItem}>
-                    <button
-                      className={styles.specButton}
-                      onClick={() => toggleSpec("clarity")}
+                      <p>
+                        The carat is the unit of weight of a diamond. Carat is
+                        often confused with size even though it is actually a
+                        measure of weight. One carat equals 200 milligrams or
+                        0.2 grams. The scale below illustrates the typical size
+                        relationship between diamonds of increasing carat
+                        weights. Remember that while the measurements below are
+                        typical, every diamond is unique.
+                      </p>
+                      <div>
+                        <SinglePointSlider
+                          min={1}
+                          max={10}
+                          defaultValue={5}
+                          onChange={() => {}}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          fontWeight: "300",
+                          fontStyle: "Light", // Note: CSS typically uses 'normal', 'italic', or 'oblique' for fontStyle.
+                          fontSize: "20px",
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
+                          textDecoration: "underline",
+                          textDecorationStyle: "solid",
+                          // textDecorationOffset: "0%",
+                          textDecorationThickness: "0%",
+                          textDecorationSkipInk: "auto",
+                        }}
+                      >
+                        Learn About Carat
+                      </div>
+                    </div>
+                  </SpecAccordion>
+                  <SpecAccordion title="Diamond Clarity : VS1">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "2rem",
+                      }}
                     >
-                      <span>Diamond Clarity : VS1</span>
-                      <ChevronDownIcon />
-                    </button>
-                  </div>
-                  <div className={styles.specItem}>
-                    <button
-                      className={styles.specButton}
-                      onClick={() => toggleSpec("cut")}
+                      <p>
+                        The carat is the unit of weight of a diamond. Carat is
+                        often confused with size even though it is actually a
+                        measure of weight. One carat equals 200 milligrams or
+                        0.2 grams. The scale below illustrates the typical size
+                        relationship between diamonds of increasing carat
+                        weights. Remember that while the measurements below are
+                        typical, every diamond is unique.
+                      </p>
+                      <div>
+                        <SinglePointSlider
+                          min={1}
+                          max={10}
+                          defaultValue={5}
+                          onChange={() => {}}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          fontWeight: "300",
+                          fontStyle: "Light", // Note: CSS typically uses 'normal', 'italic', or 'oblique' for fontStyle.
+                          fontSize: "20px",
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
+                          textDecoration: "underline",
+                          textDecorationStyle: "solid",
+                          // textDecorationOffset: "0%",
+                          textDecorationThickness: "0%",
+                          textDecorationSkipInk: "auto",
+                        }}
+                      >
+                        Learn About Carat
+                      </div>
+                    </div>
+                  </SpecAccordion>
+                  <SpecAccordion title="Diamond Cut : Super Ideal">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "2rem",
+                      }}
                     >
-                      <span>Diamond Cut : Super Ideal</span>
-                      <ChevronDownIcon />
-                    </button>
-                  </div>
+                      <p>
+                        The carat is the unit of weight of a diamond. Carat is
+                        often confused with size even though it is actually a
+                        measure of weight. One carat equals 200 milligrams or
+                        0.2 grams. The scale below illustrates the typical size
+                        relationship between diamonds of increasing carat
+                        weights. Remember that while the measurements below are
+                        typical, every diamond is unique.
+                      </p>
+                      <div>
+                        <SinglePointSlider
+                          min={1}
+                          max={10}
+                          defaultValue={5}
+                          onChange={() => {}}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          fontWeight: "300",
+                          fontStyle: "Light", // Note: CSS typically uses 'normal', 'italic', or 'oblique' for fontStyle.
+                          fontSize: "20px",
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
+                          textDecoration: "underline",
+                          textDecorationStyle: "solid",
+                          // textDecorationOffset: "0%",
+                          textDecorationThickness: "0%",
+                          textDecorationSkipInk: "auto",
+                        }}
+                      >
+                        Learn About Carat
+                      </div>
+                    </div>
+                  </SpecAccordion>
                   <div className={styles.specsSection}>
                     <button
                       className={styles.specsButton}
@@ -218,5 +360,41 @@ export default function DiamondView() {
         </div>
       </div>
     </ProductView>
+  );
+}
+
+export const SpecAccordion = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div className={styles.specItem}>
+      <button
+        className={styles.specButton}
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <span>{title}</span>
+        <div
+          style={{
+            transition: "0.2s all ease",
+            transform: isExpanded ? "rotate(180deg)" : "none",
+          }}
+        >
+          <ChevronDownIcon />
+        </div>
+      </button>
+      <div
+        style={{
+          display: isExpanded ? "block" : "none",
+        }}
+      >
+        {children}
+      </div>
+    </div>
   );
 };
