@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { FilterState } from "./DiamondFilters";
 
 type Props = {
   show?: boolean;
@@ -7,6 +8,21 @@ type Props = {
 
 export default function DiamondFiltersModal(props: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [filters, setFilters] = useState<FilterState>({
+    diamondType: "natural",
+    colorType: "white",
+    colorGrade: [],
+    clarity: [],
+    caratRange: [0, 500],
+    quickship: false,
+    sortBy: "Popular",
+    viewMode: "grid",
+  });
+
+  const updateFilters = (newFilters: Partial<FilterState>) => {
+    const updatedFilters = { ...filters, ...newFilters };
+    setFilters(updatedFilters);
+  };
 
   useEffect(() => {
     if (!dialogRef.current) {
@@ -26,7 +42,7 @@ export default function DiamondFiltersModal(props: Props) {
     <dialog className="diamond-filters-modal" ref={dialogRef}>
       <style>{`
           .diamond-filters-modal {
-            background-color: #3B0D52;
+            background-color: #ffffff;
             background-image: url('/Radiant.png');
             background-blend-mode: overlay;
             background-size: 80%;
@@ -36,19 +52,18 @@ export default function DiamondFiltersModal(props: Props) {
             border-radius: 4px;
             text-align: center;
             color: white;
-            width: min(800px, 95vw);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            overflow: visible;
+            width: min(500px, 95vw);
+            height: 100vh;
+            right: 0;
           }
           .diamond-filters-modal::backdrop {
-            background: rgba(0, 0, 0, 0.5);
+              background: rgba(0, 0, 0, 0.5);
           }
           .modal-wrapper {
             position: relative;
             width: 100%;
-            padding: 40px;
+            height: 100%;
+            overflow: auto;
           }
           .diamond-filters-modal .close-button {
             width: 36px;
@@ -75,8 +90,26 @@ export default function DiamondFiltersModal(props: Props) {
           }
         `}</style>
       <div className="modal-wrapper">
-        <div className="close-button" onClick={props.onClose}>
-          X
+        <div>
+          <div className="close-button" onClick={props.onClose}>
+            X
+          </div>
+        </div>
+        <div className="diamond-type-selector">
+          <div className="diamond-type-container">
+            <button
+              className={`diamond-type-btn ${filters.diamondType === "natural" ? "active" : ""}`}
+              onClick={() => updateFilters({ diamondType: "natural" })}
+            >
+              NATURAL DIAMONDS
+            </button>
+            <button
+              className={`diamond-type-btn ${filters.diamondType === "lab" ? "active" : ""}`}
+              onClick={() => updateFilters({ diamondType: "lab" })}
+            >
+              LAB DIAMONDS
+            </button>
+          </div>
         </div>
       </div>
     </dialog>

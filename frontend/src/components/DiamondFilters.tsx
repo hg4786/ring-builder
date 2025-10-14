@@ -4,9 +4,10 @@ import { DualRangeSlider } from "./DualRangeSlider";
 
 interface DiamondFiltersProps {
   onFiltersChange?: (filters: FilterState) => void;
+  handleShowFilterModal: () => void;
 }
 
-interface FilterState {
+export interface FilterState {
   diamondType: "natural" | "lab";
   colorType: "white" | "fancy";
   colorGrade: string[];
@@ -22,6 +23,7 @@ const clarityGrades = ["FL", "VVS", "VS", "SI"];
 
 export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
   onFiltersChange,
+  handleShowFilterModal,
 }) => {
   const [filters, setFilters] = useState<FilterState>({
     diamondType: "natural",
@@ -168,7 +170,7 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
 
       <div className="filter-bottom-controls">
         <div className="left-controls">
-          <button className="advance-filter-btn">
+          <button className="advance-filter-btn" onClick={handleShowFilterModal}>
             <div>
               <span>Advance Filter</span>
               <svg className="dropdown-icon" viewBox="0 0 6 9" fill="none">

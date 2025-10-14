@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { DiamondFilters } from "../../components/DiamondFilters";
 import { SelectedSettingBanner } from "../../components/SelectedSettingBanner";
 import "./diamonds.css";
 import { useNavigate } from "react-router-dom";
+import DiamondFiltersModal from "../../components/DiamondFiltersModal";
 
 const DiamondsPage: React.FC = () => {
+  const [showFilterModal, setShowFilterModal] = useState(false);
   const navigate = useNavigate();
   const handleFiltersChange = (filters: any) => {
     console.log("Filters changed:", filters);
@@ -12,7 +14,7 @@ const DiamondsPage: React.FC = () => {
   };
 
   const handleModify = () => {
-    navigate("/rings/1")
+    navigate("/rings/1");
   };
 
   return (
@@ -25,7 +27,10 @@ const DiamondsPage: React.FC = () => {
       />
 
       {/* Diamond Filters Section */}
-      <DiamondFilters onFiltersChange={handleFiltersChange} />
+      <DiamondFilters
+        onFiltersChange={handleFiltersChange}
+        handleShowFilterModal={() => setShowFilterModal(true)}
+      />
 
       {/* Diamond Grid */}
       <div className="diamondGridWrapper">
@@ -39,6 +44,11 @@ const DiamondsPage: React.FC = () => {
           ))}
         </div>
       </div>
+
+      <DiamondFiltersModal
+        show={showFilterModal}
+        onClose={() => setShowFilterModal(false)}
+      />
     </div>
   );
 };
