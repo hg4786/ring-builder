@@ -35,7 +35,7 @@ export default function RingView() {
         .ring-view-page.main-container {
           display: flex;
           gap: 2rem;
-          max-width: calc(100% - 5rem);
+          max-width: var(--main-section-width);
           margin: 0 auto;
         }
         .ring-view-page .left-column {

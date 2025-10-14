@@ -17,6 +17,7 @@ export const ProductView = (props: Props) => {
         .product-details-page {
           font-family: 'Poppins', sans-serif;
           color: #111;
+          --main-section-width: calc(100% - 5rem);
         }
         .product-details-page .section {
           padding: 2rem;
@@ -40,6 +41,11 @@ export const ProductView = (props: Props) => {
         }
         .product-details-page .faq-section {
           max-width: 900px;
+        }
+        @media (max-width: 600px) {
+          .product-details-page {
+            --main-section-width: calc(100% - 1rem);
+          }
         }
       `}</style>
 

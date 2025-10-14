@@ -77,7 +77,7 @@ export default function DiamondView() {
             <div className={styles.productLayout}>
               {/* Image Gallery */}
               <div className={styles.imageGallery}>
-                <div className={styles.imageColumnLeft}>
+                {/* <div className={styles.imageColumnLeft}> */}
                   <div className={`${styles.imageView} ${styles.view360}`}>
                     <img
                       src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
@@ -108,8 +108,8 @@ export default function DiamondView() {
                       <span className={styles.viewLabel}>BACK VIEW</span>
                     </div>
                   </div>
-                </div>
-                <div className={styles.imageColumnRight}>
+                {/* </div> */}
+                {/* <div className={styles.imageColumnRight}> */}
                   <div className={styles.mainImageContainer}>
                     <img
                       src="https://api.builder.io/api/v1/image/assets/TEMP/9a9876fe462c332574d05c013cab59040dc98ad6?width=856"
@@ -120,7 +120,7 @@ export default function DiamondView() {
                       <span className={styles.viewLabel}>ROTATE VIEW</span>
                     </div>
                   </div>
-                </div>
+                {/* </div> */}
               </div>
               {/* Product Information */}
               <div className={styles.productInfo}>
