@@ -6,6 +6,7 @@ import { EmailForm } from "../../components/EmailForm";
 import { diamondShapes } from "../../lib/constants";
 import { ProductView } from "../../components/productView";
 import { useNavigate } from "react-router-dom";
+import StepModal from "../../components/StepModal";
 
 const metals = [
   { name: "18k Yellow Gold", color: "#FFD700" },
@@ -26,14 +27,15 @@ export default function RingView() {
   const [metal, setMetal] = useState("18k Yellow Gold");
   const [band, setBand] = useState("Plain");
 
+  const [stepModalStep, setStepModalStep] = useState(0);
+
   return (
     <ProductView>
       <style>{`
         .ring-view-page.main-container {
           display: flex;
-          padding: 2rem;
           gap: 2rem;
-          max-width: 1400px;
+          max-width: calc(100% - 5rem);
           margin: 0 auto;
         }
         .ring-view-page .left-column {
@@ -127,7 +129,7 @@ export default function RingView() {
               fontSize: "1rem",
               fontWeight: "600",
             }}
-            onClick={() => navigate("/diamonds")}
+            onClick={() => setStepModalStep(2)}
           >
             Select Stone For Your Ring
           </button>
@@ -149,6 +151,17 @@ export default function RingView() {
           <EmailForm />
         </div>
       </div>
+
+      <StepModal
+        show={stepModalStep > 0}
+        step={stepModalStep}
+        totalStep={3}
+        title="Select your Stone"
+        description="Every love story shines differently — so should your ring. The right stone captures the moment and makes it unforgettable. Let’s find the perfect one for your setting."
+        buttonText="Select Stone For Your Ring"
+        onButtonClick={() => navigate("/diamonds")}
+        onClose={() => setStepModalStep(0)}
+      />
     </ProductView>
   );
-};
+}

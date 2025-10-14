@@ -18,52 +18,28 @@ export const ProductView = (props: Props) => {
           font-family: 'Poppins', sans-serif;
           color: #111;
         }
-        .main-container {
-          display: flex;
+        .product-details-page .section {
           padding: 2rem;
-          gap: 2rem;
-          max-width: 1400px;
+          max-width: 100%;
           margin: 0 auto;
         }
-        .left-column {
-          flex: 1 1 60%;
-        }
-        .right-column {
-          flex: 1 1 40%;
-          display: flex;
-          flex-direction: column;
-        }
-        .section {
-          padding: 2rem;
-          max-width: 1400px;
-          margin: 0 auto;
-        }
-        .section-title {
+        .product-details-page .section-title {
           text-align: center;
           font-size: 2rem;
           font-weight: 500;
           margin-bottom: 2rem;
           font-family: 'Serif', 'Times New Roman';
         }
-        .reviews-section {
+        .product-details-page .reviews-section {
           background-color: #f9f9f9;
         }
-        .rings-grid, .gallery-grid {
+        .product-details-page .rings-grid, .gallery-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 1.5rem;
         }
-        .faq-section {
+        .product-details-page .faq-section {
           max-width: 900px;
-        }
-
-        @media (max-width: 992px) {
-          .main-container {
-            flex-direction: column;
-          }
-          .left-column, .right-column {
-            flex: 1 1 100%;
-          }
         }
       `}</style>
 
