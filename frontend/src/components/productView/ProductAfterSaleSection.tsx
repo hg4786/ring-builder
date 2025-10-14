@@ -6,16 +6,21 @@ export const ProductAfterSaleSection = () => {
       style={{
         display: "flex",
         justifyContent: "flex-start",
-        alignItems: "center",
+        flexWrap: "wrap",
         padding: "1.5rem 0",
         marginBottom: "2rem",
       }}
     >
       <div
         style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           textAlign: "center",
           border: "1px solid #eee",
           padding: "2rem",
+          width: "15rem",
+          aspectRatio: "19 / 6",
         }}
       >
         <DeliveryIcon />
@@ -23,9 +28,14 @@ export const ProductAfterSaleSection = () => {
       </div>
       <div
         style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           textAlign: "center",
           border: "1px solid #eee",
           padding: "2rem",
+          width: "15rem",
+          aspectRatio: "19 / 6",
         }}
       >
         <img
@@ -37,9 +47,14 @@ export const ProductAfterSaleSection = () => {
       </div>
       <div
         style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           textAlign: "center",
           border: "1px solid #eee",
           padding: "2rem",
+          width: "15rem",
+          aspectRatio: "19 / 6",
         }}
       >
         <img
@@ -51,9 +66,14 @@ export const ProductAfterSaleSection = () => {
       </div>
       <div
         style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           textAlign: "center",
           border: "1px solid #eee",
           padding: "2rem",
+          width: "15rem",
+          aspectRatio: "19 / 6",
         }}
       >
         <img
