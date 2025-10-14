@@ -3,7 +3,9 @@ import { useState } from "react";
 export const FAQSection = () => {
   return (
     <div className="section faq-section">
-      <h2 className="section-title">Frequently Asked Questions</h2>
+      <h2 className="section-title" style={{ textTransform: "uppercase" }}>
+        Frequently Asked Questions
+      </h2>
       <FAQItem
         question="What defines a signature solitaire oval engagement ring in yellow gold symmetry?"
         answer="It's defined by its elegant simplicity, featuring a single, beautifully cut oval diamond set on a classic yellow gold band, crafted with perfect symmetry to enhance its brilliance."
@@ -48,7 +50,7 @@ export const FAQItem = ({
           padding: "0.5rem 0",
         }}
       >
-        <span style={{ fontWeight: "600" }}>{question}</span>
+        <span style={{ fontSize: "24px", fontWeight: "600" }}>{question}</span>
         <span>{isOpen ? "-" : "+"}</span>
       </button>
       {isOpen && (

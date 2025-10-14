@@ -1,7 +1,6 @@
 import { ProductAfterSaleSection } from "./ProductAfterSaleSection";
 import { ClientReviews } from "./ClientReviews";
 import { CustomRing } from "./CustomRing";
-import { RingYouMayLove } from "./RingYouMayLove";
 import { YouSaidYes } from "./YouSaidYes";
 import { FAQSection } from "./FAQSection";
 
@@ -27,9 +26,11 @@ export const ProductView = (props: Props) => {
         .product-details-page .section-title {
           text-align: center;
           font-size: 2rem;
-          font-weight: 500;
           margin-bottom: 2rem;
-          font-family: 'Serif', 'Times New Roman';
+          font-family: "EB Garamond", serif;
+          font-optical-sizing: auto;
+          font-weight: 500;
+          font-style: normal;
         }
         .product-details-page .reviews-section {
           background-color: #f9f9f9;
@@ -40,7 +41,7 @@ export const ProductView = (props: Props) => {
           gap: 1.5rem;
         }
         .product-details-page .faq-section {
-          max-width: 900px;
+          max-width: 100%;
         }
         @media (max-width: 600px) {
           .product-details-page {
@@ -57,7 +58,7 @@ export const ProductView = (props: Props) => {
 
       <CustomRing />
 
-      <RingYouMayLove />
+      {/* <RingYouMayLove /> */}
 
       <YouSaidYes />
 
