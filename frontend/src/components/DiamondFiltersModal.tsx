@@ -487,7 +487,7 @@ export default function DiamondFiltersModal(props: Props) {
           {/* Sorting Section */}
           <div className="filter-section">
             <div className="section-header">
-              <h3 className="section-title">sORTING bY</h3>
+              <h3 className="section-title">Sorting By</h3>
               <svg width="19" height="4" viewBox="0 0 19 4" fill="none">
                 <path d="M1 1.96875H18M9.5 2.03125V2" stroke="#030303" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
