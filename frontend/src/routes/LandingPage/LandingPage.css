@@ -310,6 +310,7 @@
 }
 
 .product-options {
+  width: 100%;
   display: flex;
   padding: 20px 0 8px 0;
   flex-direction: column;
@@ -339,6 +340,7 @@
 }
 
 .metal-swatch {
+  color: transparent;
   height: 21px;
   flex: 1;
   cursor: pointer;

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { jewelryCategories, products } from "../lib/constants";
+import { jewelryCategories, products } from "../../lib/constants";
 import {
   ChevronDownIcon,
   GridIcon,
   ListIcon,
   QuickshipIcon,
-} from "../lib/svgIcons";
+} from "../../lib/svgIcons";
 import "./LandingPage.css";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../../components/ProductCard";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
@@ -95,7 +95,7 @@ const LandingPage = () => {
           <ProductCard
             key={product.id}
             product={product}
-            onClick={() => navigate(`/products/${product.id}`)}
+            onClick={() => navigate(`/rings/${product.id}`)}
           />
         ))}
 

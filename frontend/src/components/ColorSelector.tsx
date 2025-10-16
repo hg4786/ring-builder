@@ -16,7 +16,7 @@ export const ColorSelector: React.FC<ColorSelectorProps> = ({ title, options, se
   return (
     <div style={{ marginBottom: '20px' }}>
       <h3 style={{ marginBottom: '10px' }}>{title}</h3>
-      <div style={{ display: 'flex', gap: '10px' }}>
+      <div style={{ display: 'flex', gap: '15px' }}>
         {options.map(option => (
           <div
             key={option.name}
@@ -26,8 +26,9 @@ export const ColorSelector: React.FC<ColorSelectorProps> = ({ title, options, se
               height: '40px',
               backgroundColor: option.color,
               borderRadius: '50%',
-              border: selectedOption === option.name ? '2px solid #6a0dad' : '1px solid #ccc',
-              cursor: 'pointer'
+              outline: selectedOption === option.name ? '1px solid #3C3C3C' : 'none',
+              outlineOffset: "4px",
+              cursor: 'pointer',
             }}
           />
         ))}

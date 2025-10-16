@@ -1,0 +1,624 @@
+.diamondDetailSection {
+  width: 100%;
+  max-width: var(--main-section-width);
+  margin: 0 auto;
+  background: #fff;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+/* Benefits Banner */
+.benefitsBanner {
+  width: 100%;
+  max-width: 1090px;
+  height: 189px;
+  margin: 0 auto;
+  position: relative;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.benefitsContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 40px;
+}
+
+.benefitsGrid {
+  display: flex;
+  width: 100%;
+  max-width: 1027px;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 40px;
+  top: 121px;
+  height: 26px;
+}
+
+.benefitText {
+  color: #3c3c3c;
+  font-family:
+    "EB Garamond",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.benefitsContainer svg {
+  position: absolute;
+  left: 81px;
+  top: 44px;
+  width: 63px;
+  height: 42px;
+  fill: #50056e;
+}
+
+/* Main Content */
+.mainContent {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 1829px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+
+/* Navigation */
+.navigationSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.browseDiamondsBtn {
+  display: flex;
+  width: 272px;
+  height: 47px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #50056e;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.browseDiamondsBtn svg {
+  width: 14px;
+  height: 14px;
+  transform: rotate(90deg);
+}
+
+/* Product Layout */
+.productLayout {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  width: 100%;
+}
+
+/* Image Gallery */
+.imageGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.imageGallery>* {
+  width: calc(50% - 11px) !important;
+  aspect-ratio: 5 / 6 !important;
+}
+
+.imageColumnLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.imageView {
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: #f8f8f8;
+  position: relative;
+}
+
+.view360 {
+  background:
+    url("https://api.builder.io/api/v1/image/assets/TEMP/9ed5488fe5e750fb475a860f58a9a95e849d594b?width=1066")
+      lightgray 50% / cover no-repeat,
+    #fafafa;
+}
+
+.viewOverlay {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.31);
+  position: absolute;
+}
+
+.viewFront .viewOverlay,
+.viewBack .viewOverlay {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+}
+
+.viewLabel {
+  color: #fff;
+  font-family:
+    "EB Garamond",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 51px;
+}
+
+.imageColumnRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.mainImageContainer {
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #f8f8f8;
+  position: relative;
+}
+
+.mainImage {
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.mainViewOverlay {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.31);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+}
+
+.zoomOverlay {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.31);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Product Information */
+.productInfo {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 51px;
+}
+
+.productHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23px;
+  width: 100%;
+}
+
+.productTitle {
+  color: #000;
+  font-family:
+    "EB Garamond",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.productType {
+  color: #060606;
+  font-family:
+    "EB Garamond",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.productPrice {
+  color: #2c003e;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+/* Specifications */
+.specifications {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.specButton {
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+}
+
+.specsSection {
+  padding-top: 10px;
+  border-top: 1px solid #a9a9a9;
+  width: 100%;
+}
+
+.specsButton {
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #000;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23px;
+  width: 100%;
+}
+
+.viewCertificateBtn {
+  display: flex;
+  height: 74px;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #50056e;
+  background: transparent;
+  color: #50056e;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.chooseDiamondBtn {
+  display: flex;
+  height: 74px;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border-radius: 4px;
+  background: #50056e;
+  border: none;
+  color: #fff;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* Email Section */
+.emailSection {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.emailHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.emailTitle {
+  color: #000;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.emailSubtitle {
+  color: #000;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.emailForm {
+  display: flex;
+  height: 71px;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+}
+
+.emailInput {
+  display: flex;
+  width: 462px;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  border: 1px solid #8b8b8b;
+  background: transparent;
+  color: #000;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  height: 100%;
+}
+
+.emailInput::placeholder {
+  color: #000;
+}
+
+.emailSubmitBtn {
+  display: flex;
+  width: 232px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  border-radius: 2px;
+  background: #2c2c2c;
+  border: none;
+  color: #fff;
+  font-family:
+    "Poppins",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .productLayout {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .imageGallery {
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .imageColumnLeft,
+  .imageColumnRight {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .mainImageContainer {
+    width: 100%;
+  }
+
+  .productInfo {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefitsGrid {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .benefitText {
+    font-size: 16px;
+  }
+  
+  .imageGallery {
+    flex-direction: column;
+  }
+
+  .imageGallery>* {
+    width: 100% !important;
+  }
+  
+  .viewLabel {
+    font-size: 24px;
+  }
+
+  .productTitle {
+    font-size: 28px;
+  }
+
+  .productType,
+  .productPrice {
+    font-size: 20px;
+  }
+
+  .emailForm {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+
+  .emailInput,
+  .emailSubmitBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .browseDiamondsBtn {
+    width: 100%;
+  }
+
+  .imageView {
+    height: 250px;
+  }
+
+  .mainImageContainer {
+    height: 300px;
+  }
+
+  .mainImage {
+    width: 250px;
+    height: 250px;
+  }
+
+  .specButton,
+  .specsButton {
+    font-size: 18px;
+  }
+
+  .viewCertificateBtn,
+  .chooseDiamondBtn {
+    font-size: 20px;
+    height: 60px;
+  }
+}
