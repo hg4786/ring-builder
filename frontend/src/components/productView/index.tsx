@@ -36,9 +36,15 @@ export const ProductView = (props: Props) => {
           background-color: #f9f9f9;
         }
         .product-details-page .rings-grid, .gallery-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          /* display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+          display: flex;
           gap: 1.5rem;
+          overflow: auto;
+        }
+        .product-details-page .rings-grid, .gallery-grid>* {
+          width: 250px !important;
+          aspect-ratio: 1;
         }
         .product-details-page .faq-section {
           max-width: 100%;

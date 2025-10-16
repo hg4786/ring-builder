@@ -49,11 +49,6 @@ export default function RingView() {
         .ring-view-page .reviews-section {
           background-color: #f9f9f9;
         }
-        .ring-view-page .rings-grid, .gallery-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 1.5rem;
-        }
         @media (max-width: 992px) {
           .ring-view-page.main-container {
             flex-direction: column;

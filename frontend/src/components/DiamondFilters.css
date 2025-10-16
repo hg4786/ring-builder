@@ -11,7 +11,7 @@
   background: #ffffff;
 }
 
-.filters-header {
+.diamond-filters .filters-header {
   display: flex;
   width: 100%;
   max-width: 1358px;
@@ -20,8 +20,8 @@
   margin: 0 auto;
 }
 
-.filters-title {
-  width: 635px;
+.diamond-filters .filters-title {
+  /* width: 635px; */
   color: #000;
   font-family:
     "EB Garamond",
@@ -35,13 +35,13 @@
   margin: 0;
 }
 
-.diamond-type-selector {
+.diamond-filters .diamond-type-selector {
   display: flex;
   align-items: center;
   gap: 35px;
 }
 
-.diamond-type-container {
+.diamond-filters .diamond-type-container {
   display: flex;
   align-items: center;
   border: 1px solid #000;
@@ -49,7 +49,7 @@
   overflow: hidden;
 }
 
-.diamond-type-btn {
+.diamond-filters .diamond-type-btn {
   display: flex;
   height: 43px;
   padding: 0 17px;
@@ -74,30 +74,30 @@
   color: #3c3c3c;
 }
 
-.diamond-type-btn.active {
+.diamond-filters .diamond-type-btn.active {
   background: #50056e;
   color: #ffffff;
 }
 
-.diamond-type-btn:hover:not(.active) {
+.diamond-filters .diamond-type-btn:hover:not(.active) {
   background: #f5f5f5;
 }
 
-.filter-controls {
+.diamond-filters .filter-controls {
   display: flex;
   width: 100%;
   max-width: 1358px;
   margin: 0 auto;
 }
 
-.filter-sections {
+.diamond-filters .filter-sections {
   display: flex;
   width: 100%;
   align-items: flex-start;
   gap: 24px;
 }
 
-.color-section {
+.diamond-filters .color-section {
   display: flex;
   /* width: 555px; */
   flex-direction: column;
@@ -108,14 +108,15 @@
   min-width: 300px;
 }
 
-.color-header {
+.diamond-filters .color-header {
   display: flex;
   align-items: center;
   gap: 24px;
   flex-wrap: wrap; /* Allow wrapping on small screens */
+  width: 100%;
 }
 
-.filter-label {
+.diamond-filters .filter-label {
   color: #000;
   text-align: center;
   font-family:
@@ -129,7 +130,7 @@
   line-height: normal;
 }
 
-.color-type-selector {
+.diamond-filters .color-type-selector {
   display: flex;
   padding: 4px;
   align-items: center;
@@ -138,7 +139,7 @@
   background: #ffffff;
 }
 
-.color-type-btn {
+.diamond-filters .color-type-btn {
   display: flex;
   padding: 0 11px;
   justify-content: center;
@@ -160,7 +161,7 @@
   transition: all 0.2s ease;
 }
 
-.color-type-btn.active {
+.diamond-filters .color-type-btn.active {
   border: 1px solid #50056e;
   background: #50056e;
   color: #ffffff;
@@ -175,8 +176,10 @@
 
 .grade-btn {
   display: flex;
+  min-width: 30px;
   padding: 4px 11px;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   border: 1px solid #d9d9d9;
   background: #ffffff;
@@ -529,6 +532,61 @@
   height: 31px;
 }
 
+.diamond-filters .shape-grid {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-inline: auto;
+}
+
+.diamond-filters .shape-option {
+  display: flex;
+  width: 130px;
+  height: 155px;
+  padding: 0 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(217, 217, 217, 0.41);
+  background: rgba(217, 217, 217, 0.27);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-direction: column;
+}
+
+.diamond-filters .shape-option.selected {
+  border-color: #1d0129;
+  background: transparent;
+}
+
+.diamond-filters .shape-option.selected .shape-name {
+  color: #50056e;
+}
+
+.diamond-filters .shape-image {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.diamond-filters .shape-name {
+  color: #000;
+  text-align: center;
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
 /* ---------------------------------------------------------------------- */
 /* Responsive Design - Adjusted for a better hierarchy and flow */
 /* ---------------------------------------------------------------------- */
@@ -602,7 +660,6 @@
     width: 450px;
   }
 }
-
 
 /* Large Mobile/Small Tablet - 768px */
 @media (max-width: 768px) {
@@ -703,7 +760,7 @@
     flex-direction: column; /* Stack quickship elements */
     align-items: flex-start;
   }
-  
+
   .quickship-control span {
     font-size: 16px;
   }
@@ -757,14 +814,12 @@
   .clarity-grades {
     flex-wrap: wrap;
     gap: 8px;
-    justify-content: center;
+    /* justify-content: center; */
     width: 100%;
   }
 
   .grade-btn {
     padding: 4px 8px;
-    min-width: 40px;
-    flex: 1 1 auto; /* Allow grades to share space dynamically */
     box-sizing: border-box;
   }
 
@@ -776,32 +831,36 @@
   .range-inputs {
     width: 100%;
   }
-  
+
   .right-controls {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
-  
+
   .quickship-control {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     width: 100%;
   }
-  
+
   .sort-control {
     width: 100%;
     justify-content: flex-start;
   }
-  
+
   .view-controls {
     width: 100%;
     justify-content: space-around;
     gap: 0;
   }
-  
+
   .view-btn {
     padding: 5px;
+  }
+
+  .diamond-filters .shape-grid {
+    gap: 10px;
   }
 }

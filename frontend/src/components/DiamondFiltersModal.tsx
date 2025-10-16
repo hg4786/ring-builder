@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import "./DiamondFiltersModal.css"
 
 export interface DiamondFilterState {
   // Priority filters
@@ -33,7 +34,7 @@ type Props = {
   onApplyFilters?: (filters: DiamondFilterState) => void;
 };
 
-const diamondShapes = [
+export const allDiamondShapesList = [
   { name: "Round", image: "https://api.builder.io/api/v1/image/assets/TEMP/8641dbf14ecf64c9f304e74c609fa3203e64c5b0?width=150" },
   { name: "Oval", image: "https://api.builder.io/api/v1/image/assets/TEMP/be45a5ae02dea54f20094e0fd9cb2f235dfca375?width=180" },
   { name: "Emerald", image: "https://api.builder.io/api/v1/image/assets/TEMP/3b60bcc82069a23b2b97d5dda769276f45aab184?width=180" },
@@ -81,67 +82,67 @@ const sortingOptions = [
   "Carat Ascending"
 ];
 
-const RangeSlider = ({ 
-  min, 
-  max, 
-  value, 
-  onChange,
-  formatValue,
-  unit = ""
-}: {
-  min: number;
-  max: number;
-  value: [number, number];
-  onChange: (value: [number, number]) => void;
-  formatValue?: (val: number) => string;
-  unit?: string;
-}) => {
-  const minPercent = ((value[0] - min) / (max - min)) * 100;
-  const maxPercent = ((value[1] - min) / (max - min)) * 100;
+// const RangeSlider = ({ 
+//   min, 
+//   max, 
+//   value, 
+//   onChange,
+//   formatValue,
+//   unit = ""
+// }: {
+//   min: number;
+//   max: number;
+//   value: [number, number];
+//   onChange: (value: [number, number]) => void;
+//   formatValue?: (val: number) => string;
+//   unit?: string;
+// }) => {
+//   const minPercent = ((value[0] - min) / (max - min)) * 100;
+//   const maxPercent = ((value[1] - min) / (max - min)) * 100;
 
-  return (
-    <div className="range-slider-section">
-      <div className="range-slider-track">
-        <div 
-          className="range-slider-fill"
-          style={{
-            left: `${minPercent}%`,
-            width: `${maxPercent - minPercent}%`
-          }}
-        />
-        <div 
-          className="range-slider-thumb"
-          style={{ left: `${minPercent}%` }}
-        />
-        <div 
-          className="range-slider-thumb"
-          style={{ left: `${maxPercent}%` }}
-        />
-      </div>
-      <div className="range-inputs">
-        <input
-          type="text"
-          className="range-input"
-          value={formatValue ? formatValue(value[0]) : `${unit}${value[0]}`}
-          onChange={(e) => {
-            const newVal = parseFloat(e.target.value.replace(/[^0-9.]/g, '')) || min;
-            onChange([Math.max(min, Math.min(newVal, value[1])), value[1]]);
-          }}
-        />
-        <div className="range-separator" />
-        <input
-          type="text"
-          className="range-input"
-          value={formatValue ? formatValue(value[1]) : `${unit}${value[1]}`}
-          onChange={(e) => {
-            const newVal = parseFloat(e.target.value.replace(/[^0-9.]/g, '')) || max;
-            onChange([value[0], Math.min(max, Math.max(newVal, value[0]))]);
-          }}
-        />
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="range-slider-section">
+//       <div className="range-slider-track">
+//         <div 
+//           className="range-slider-fill"
+//           style={{
+//             left: `${minPercent}%`,
+//             width: `${maxPercent - minPercent}%`
+//           }}
+//         />
+//         <div 
+//           className="range-slider-thumb"
+//           style={{ left: `${minPercent}%` }}
+//         />
+//         <div 
+//           className="range-slider-thumb"
+//           style={{ left: `${maxPercent}%` }}
+//         />
+//       </div>
+//       <div className="range-inputs">
+//         <input
+//           type="text"
+//           className="range-input"
+//           value={formatValue ? formatValue(value[0]) : `${unit}${value[0]}`}
+//           onChange={(e) => {
+//             const newVal = parseFloat(e.target.value.replace(/[^0-9.]/g, '')) || min;
+//             onChange([Math.max(min, Math.min(newVal, value[1])), value[1]]);
+//           }}
+//         />
+//         <div className="range-separator" />
+//         <input
+//           type="text"
+//           className="range-input"
+//           value={formatValue ? formatValue(value[1]) : `${unit}${value[1]}`}
+//           onChange={(e) => {
+//             const newVal = parseFloat(e.target.value.replace(/[^0-9.]/g, '')) || max;
+//             onChange([value[0], Math.min(max, Math.max(newVal, value[0]))]);
+//           }}
+//         />
+//       </div>
+//     </div>
+//   );
+// };
 
 export default function DiamondFiltersModal(props: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -272,7 +273,7 @@ export default function DiamondFiltersModal(props: Props) {
               </svg>
             </div>
             <div className="shape-grid">
-              {diamondShapes.map(shape => (
+              {allDiamondShapesList.map(shape => (
                 <button
                   key={shape.name}
                   className={`shape-option ${filters.shape.includes(shape.name) ? 'selected' : ''}`}
@@ -286,9 +287,9 @@ export default function DiamondFiltersModal(props: Props) {
           </div>
 
           {/* Carat Section */}
-          <div className="filter-section">
+          {/* <div className="filter-section">
             <div className="section-header">
-              <h3 className="section-title">cARAT</h3>
+              <h3 className="section-title">carat</h3>
               <svg width="19" height="4" viewBox="0 0 19 4" fill="none">
                 <path d="M1 1.98438H18M9.5 2V2.01562" stroke="#030303" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -303,10 +304,10 @@ export default function DiamondFiltersModal(props: Props) {
               onChange={(value) => updateFilters({ caratRange: value })}
               unit="$"
             />
-          </div>
+          </div> */}
 
           {/* Price Section */}
-          <div className="filter-section">
+          {/* <div className="filter-section">
             <div className="section-header">
               <h3 className="section-title">price</h3>
               <svg width="19" height="4" viewBox="0 0 19 4" fill="none">
@@ -320,7 +321,7 @@ export default function DiamondFiltersModal(props: Props) {
               onChange={(value) => updateFilters({ priceRange: value })}
               unit="$"
             />
-          </div>
+          </div> */}
 
           {/* Cut Section */}
           <div className="filter-section">
@@ -423,7 +424,7 @@ export default function DiamondFiltersModal(props: Props) {
           </div>
 
           {/* Ratio Section */}
-          <div className="filter-section">
+          {/* <div className="filter-section">
             <div className="section-header">
               <h3 className="section-title">Ratio</h3>
               <svg width="19" height="2" viewBox="0 0 19 2" fill="none">
@@ -440,10 +441,10 @@ export default function DiamondFiltersModal(props: Props) {
               onChange={(value) => updateFilters({ ratioRange: value })}
               unit="$"
             />
-          </div>
+          </div> */}
 
           {/* Table Section */}
-          <div className="filter-section">
+          {/* <div className="filter-section">
             <div className="section-header">
               <h3 className="section-title">table</h3>
               <svg width="19" height="4" viewBox="0 0 19 4" fill="none">
@@ -461,10 +462,10 @@ export default function DiamondFiltersModal(props: Props) {
               unit=""
               formatValue={(val) => `${val}%`}
             />
-          </div>
+          </div> */}
 
           {/* Depth Section */}
-          <div className="filter-section">
+          {/* <div className="filter-section">
             <div className="section-header">
               <h3 className="section-title">Depth</h3>
               <svg width="19" height="4" viewBox="0 0 19 4" fill="none">
@@ -482,7 +483,7 @@ export default function DiamondFiltersModal(props: Props) {
               unit=""
               formatValue={(val) => `${val}%`}
             />
-          </div>
+          </div> */}
 
           {/* Sorting Section */}
           <div className="filter-section">
@@ -517,643 +518,6 @@ export default function DiamondFiltersModal(props: Props) {
         </div>
       </div>
 
-      <style>{`
-        .filters-modal {
-          position: fixed;
-          top: 0;
-          right: 0;
-          width: 717px;
-          height: 100vh;
-          max-width: 100vw;
-          margin: 0;
-          padding: 0;
-          border: none;
-          background: #fff;
-          box-shadow: 0 4px 22px 0 rgba(0, 0, 0, 0.25);
-          overflow: hidden;
-        }
-
-        .filters-modal::backdrop {
-          background: rgba(0, 0, 0, 0.5);
-        }
-
-        .filters-modal-container {
-          display: flex;
-          width: 100%;
-          height: 100%;
-          padding: 69px 28px;
-          flex-direction: column;
-          align-items: center;
-          gap: 66px;
-          overflow-y: auto;
-        }
-
-        .filters-modal-container .filters-header {
-          display: flex;
-          width: 649px;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 48px;
-        }
-
-        .filters-modal-container .filters-header-content {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          align-self: stretch;
-        }
-
-        .filters-modal-container .filters-title-section {
-          display: flex;
-          width: 369px;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 45px;
-        }
-
-        .filters-modal-container .filters-title {
-          align-self: stretch;
-          color: #000;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 36px;
-          font-weight: 500;
-          line-height: normal;
-          margin: 0;
-        }
-
-        .filters-modal-container .priority-section {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 15px;
-          align-self: stretch;
-        }
-
-        .filters-modal-container .priority-title {
-          align-self: stretch;
-          color: #000;
-          font-family: 'EB Garamond', -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 24px;
-          font-weight: 400;
-          line-height: normal;
-          margin: 0;
-        }
-
-        .filters-modal-container .priority-options {
-          display: flex;
-          align-items: flex-start;
-          gap: 15px;
-        }
-
-        .filters-modal-container .priority-btn {
-          display: flex;
-          padding: 8px 16px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          border-radius: 4px;
-          border: 1px solid rgba(139, 139, 139, 0.32);
-          background: transparent;
-          color: #000;
-          font-family: 'EB Garamond', -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .filters-modal-container .priority-btn.selected {
-          background: #50056E;
-          color: #fff;
-          border-color: #50056E;
-        }
-
-        .filters-modal-container .close-btn {
-          display: flex;
-          padding: 13px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          background: transparent;
-          border: none;
-          cursor: pointer;
-        }
-
-        .filters-modal-container .diamond-type-toggle {
-          display: flex;
-          height: 66px;
-          justify-content: center;
-          align-items: center;
-          align-self: stretch;
-          border: 1px solid #000;
-        }
-
-        .filters-modal-container .diamond-type-btn {
-          display: flex;
-          height: 66px;
-          padding: 0 17px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          flex: 1 0 0;
-          background: transparent;
-          border: none;
-          color: #3C3C3C;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .filters-modal-container .diamond-type-btn.active {
-          background: #50056E;
-          color: #FFF;
-        }
-
-        .filters-modal-container .filters-content {
-          display: flex;
-          width: 633px;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 29px;
-        }
-
-        .filters-modal-container .filter-section {
-          display: flex;
-          padding: 18px 0;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 25px;
-          align-self: stretch;
-          border-bottom: 0.8px solid #000;
-        }
-
-        .filters-modal-container .section-header {
-          display: flex;
-          width: 633px;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .filters-modal-container .section-title {
-          color: #000;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 24px;
-          font-weight: 400;
-          line-height: normal;
-          text-transform: lowercase;
-          margin: 0;
-        }
-
-        .filters-modal-container .section-description {
-          color: #6E6E6E;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-          margin: 0;
-        }
-
-        .filters-modal-container .section-description .learn-more {
-          color: #50056E;
-          text-decoration: underline;
-        }
-
-        .filters-modal-container .shape-grid {
-          display: flex;
-          width: 633px;
-          justify-content: space-between;
-          align-items: center;
-          align-content: center;
-          row-gap: 15px;
-          flex-wrap: wrap;
-        }
-
-        .filters-modal-container .shape-option {
-          display: flex;
-          width: 142px;
-          height: 155px;
-          padding: 0 5px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          flex-shrink: 0;
-          border-radius: 4px;
-          border: 1px solid rgba(217, 217, 217, 0.41);
-          background: rgba(217, 217, 217, 0.27);
-          cursor: pointer;
-          transition: all 0.2s ease;
-          flex-direction: column;
-        }
-
-        .filters-modal-container .shape-option.selected {
-          border-color: #1D0129;
-          background: transparent;
-        }
-
-        .filters-modal-container .shape-option.selected .shape-name {
-          color: #50056E;
-        }
-
-        .filters-modal-container .shape-image {
-          width: 75px;
-          height: 75px;
-          object-fit: contain;
-        }
-
-        .filters-modal-container .shape-name {
-          color: #000;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .filters-modal-container .range-slider-section {
-          display: flex;
-          height: 126px;
-          padding-bottom: 27px;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 30px;
-          align-self: stretch;
-        }
-
-        .filters-modal-container .range-slider-track {
-          display: flex;
-          padding: 0 7px;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
-          align-self: stretch;
-          border-radius: 5px;
-          background: rgba(22, 57, 80, 0.10);
-          position: relative;
-          height: 24px;
-        }
-
-        .filters-modal-container .range-slider-fill {
-          height: 10px;
-          border-radius: 5px;
-          background: #50056E;
-          position: absolute;
-          top: 7px;
-        }
-
-        .filters-modal-container .range-slider-thumb {
-          width: 25px;
-          height: 24px;
-          border-radius: 12px;
-          background: #50056E;
-          border: 4px solid #50056E;
-          position: absolute;
-          top: 0;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .filters-modal-container .range-slider-thumb::after {
-          content: '';
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background: #50056E;
-        }
-
-        .filters-modal-container .range-inputs {
-          display: flex;
-          padding: 13px 0;
-          align-items: center;
-          gap: 22px;
-          flex: 1 0 0;
-          align-self: stretch;
-        }
-
-        .filters-modal-container .range-input {
-          display: flex;
-          height: 61px;
-          padding: 10px 12px;
-          align-items: center;
-          gap: 10px;
-          flex: 1 0 0;
-          border-radius: 8px;
-          border: 1px solid #8B8B8B;
-          color: #8B8B8B;
-          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 16px;
-          font-weight: 400;
-          line-height: normal;
-          background: transparent;
-        }
-
-        .filters-modal-container .range-separator {
-          width: 8px;
-          height: 1px;
-          border-radius: 1px;
-          background: #8B8B8B;
-        }
-
-        .filters-modal-container .cut-options {
-          display: flex;
-          align-items: flex-start;
-          gap: 25px;
-          align-self: stretch;
-        }
-
-        .filters-modal-container .cut-option {
-          display: flex;
-          height: 155px;
-          padding: 0 5px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          flex: 1 0 0;
-          border-radius: 4px;
-          border: 1px solid rgba(217, 217, 217, 0.41);
-          background: rgba(217, 217, 217, 0.27);
-          cursor: pointer;
-          transition: all 0.2s ease;
-          flex-direction: column;
-        }
-
-        .filters-modal-container .cut-option.selected {
-          border-color: #1D0129;
-          background: transparent;
-        }
-
-        .filters-modal-container .cut-image {
-          width: 123px;
-          height: 90px;
-          object-fit: contain;
-        }
-
-        .filters-modal-container .cut-name {
-          color: #000;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .filters-modal-container .clarity-grid {
-          display: flex;
-          align-items: flex-start;
-          align-content: flex-start;
-          gap: 25px;
-          align-self: stretch;
-          flex-wrap: wrap;
-        }
-
-        .filters-modal-container .clarity-option {
-          display: flex;
-          height: 203px;
-          padding: 22px 5px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          flex: 1 0 0;
-          border-radius: 4px;
-          border: 1px solid rgba(217, 217, 217, 0.41);
-          background: rgba(217, 217, 217, 0.27);
-          cursor: pointer;
-          transition: all 0.2s ease;
-          flex-direction: column;
-          min-width: 180px;
-        }
-
-        .filters-modal-container .clarity-option.selected {
-          border-color: #1D0129;
-          background: transparent;
-        }
-
-        .filters-modal-container .clarity-image {
-          width: 120px;
-          height: 88px;
-          object-fit: contain;
-        }
-
-        .filters-modal-container .clarity-info {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 4px;
-        }
-
-        .filters-modal-container .clarity-name {
-          color: #000;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .filters-modal-container .clarity-description {
-          width: 151px;
-          color: #8B8B8B;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .filters-modal-container .color-grid {
-          display: flex;
-          align-items: flex-start;
-          align-content: flex-start;
-          gap: 25px;
-          align-self: stretch;
-          flex-wrap: wrap;
-        }
-
-        .filters-modal-container .color-option {
-          display: flex;
-          height: 203px;
-          padding: 22px 5px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          flex: 1 0 0;
-          border-radius: 4px;
-          border: 1px solid rgba(217, 217, 217, 0.41);
-          background: rgba(217, 217, 217, 0.27);
-          cursor: pointer;
-          transition: all 0.2s ease;
-          flex-direction: column;
-          min-width: 180px;
-        }
-
-        .filters-modal-container .color-option.selected {
-          border-color: #1D0129;
-          background: transparent;
-        }
-
-        .filters-modal-container .color-image {
-          width: 153px;
-          height: 112px;
-          object-fit: contain;
-        }
-
-        .filters-modal-container .color-info {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 4px;
-        }
-
-        .filters-modal-container .color-name {
-          color: #000;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .filters-modal-container .color-description {
-          width: 151px;
-          color: #8B8B8B;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .filters-modal-container .fancy-colors {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-        }
-
-        .filters-modal-container .fancy-color-option {
-          display: flex;
-          width: 142px;
-          height: 155px;
-          padding: 0 5px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          border-radius: 4px;
-          border: 1px solid rgba(217, 217, 217, 0.41);
-          background: rgba(217, 217, 217, 0.27);
-          cursor: pointer;
-          transition: all 0.2s ease;
-          flex-direction: column;
-        }
-
-        .filters-modal-container .fancy-color-option.selected {
-          border-color: #1D0129;
-          background: transparent;
-        }
-
-        .filters-modal-container .fancy-color-image {
-          width: 90px;
-          height: 90px;
-          object-fit: contain;
-        }
-
-        .filters-modal-container .fancy-color-name {
-          color: #000;
-          text-align: center;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .filters-modal-container .sorting-options {
-          display: flex;
-          width: 636px;
-          height: 136px;
-          align-items: flex-start;
-          align-content: flex-start;
-          gap: 16px;
-          flex-shrink: 0;
-          flex-wrap: wrap;
-        }
-
-        .filters-modal-container .sorting-option {
-          display: flex;
-          padding: 10px 12px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          border-radius: 8px;
-          border: 1px solid #8B8B8B;
-          background: transparent;
-          color: #8B8B8B;
-          font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 16px;
-          font-weight: 400;
-          line-height: normal;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          height: 61px;
-        }
-
-        .filters-modal-container .sorting-option.selected {
-          background: #50056E;
-          color: #FFF;
-          border-color: #50056E;
-        }
-
-        .filters-modal-container .action-buttons {
-          display: flex;
-          width: 649px;
-          align-items: center;
-          gap: 26px;
-        }
-
-        .filters-modal-container .clear-filters-btn,
-        .filters-modal-container .apply-filters-btn {
-          display: flex;
-          height: 65px;
-          padding: 10px;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          flex: 1 0 0;
-          border-radius: 4px;
-          font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 24px;
-          font-weight: 400;
-          line-height: normal;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .filters-modal-container .clear-filters-btn {
-          border: 1px solid #000;
-          background: transparent;
-          color: #000;
-        }
-
-        .filters-modal-container .apply-filters-btn {
-          border: 1px solid #50056E;
-          background: transparent;
-          color: #50056E;
-        }
-
-        .filters-modal-container .clear-filters-btn:hover {
-          background: #f5f5f5;
-        }
-
-        .filters-modal-container .apply-filters-btn:hover {
-          background: #50056E;
-          color: #fff;
-        }
-      `}</style>
     </dialog>
   );
 }

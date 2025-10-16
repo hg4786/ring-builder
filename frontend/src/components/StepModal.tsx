@@ -33,7 +33,7 @@ export default function StepModal(props: Props) {
       <style>{`
           .step-modal {
             background-color: #3B0D52;
-            background-image: url('/Radiant.png');
+            /* background-image: url('/Radiant.png'); */
             background-blend-mode: overlay;
             background-size: 80%;
             background-repeat: no-repeat;
@@ -51,7 +51,7 @@ export default function StepModal(props: Props) {
           .step-modal::backdrop {
             background: rgba(0, 0, 0, 0.5);
           }
-          .modal-wrapper {
+          .step-modal .modal-wrapper {
             position: relative;
             width: 100%;
             padding: 40px;
@@ -101,7 +101,16 @@ export default function StepModal(props: Props) {
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            width: 25rem;
+            width: min(25rem, 95%);
+          }
+
+          @media (max-width: 600px) {
+            .step-modal .modal-wrapper {
+              padding: 20px;
+            }
+            .step-modal .action-button {
+              width: 100%;
+            }
           }
         `}</style>
       <div className="modal-wrapper">

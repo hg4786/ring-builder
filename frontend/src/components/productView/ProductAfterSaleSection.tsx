@@ -1,5 +1,3 @@
-import { DeliveryIcon } from "../../lib/svgIcons";
-
 export const ProductAfterSaleSection = () => {
   return (
     <div
@@ -23,7 +21,11 @@ export const ProductAfterSaleSection = () => {
           aspectRatio: "19 / 6",
         }}
       >
-        <DeliveryIcon />
+        <img
+          src="/icons/shippingIcon.png"
+          alt=""
+          style={{ height: "50px", marginBottom: "0.5rem" }}
+        />
         <p style={{ margin: 0, fontSize: "0.8rem" }}>Free Shipping</p>
       </div>
       <div
@@ -39,11 +41,11 @@ export const ProductAfterSaleSection = () => {
         }}
       >
         <img
-          src="/assets/icons/shield.png"
-          alt="Lifetime Warranty"
-          style={{ height: "24px", marginBottom: "0.5rem" }}
+          src="/icons/returnIcon.png"
+          alt=""
+          style={{ height: "50px", marginBottom: "0.5rem" }}
         />
-        <p style={{ margin: 0, fontSize: "0.8rem" }}>Lifetime Warranty</p>
+        <p style={{ margin: 0, fontSize: "0.8rem" }}>Free 60 Day Returns</p>
       </div>
       <div
         style={{
@@ -58,11 +60,11 @@ export const ProductAfterSaleSection = () => {
         }}
       >
         <img
-          src="/assets/icons/return.png"
-          alt="We Do Exchanges"
-          style={{ height: "24px", marginBottom: "0.5rem" }}
+          src="/icons/exchangeIcon.png"
+          alt=""
+          style={{ height: "50px", marginBottom: "0.5rem" }}
         />
-        <p style={{ margin: 0, fontSize: "0.8rem" }}>We Do Exchanges</p>
+        <p style={{ margin: 0, fontSize: "0.8rem" }}>365 Day Exchange</p>
       </div>
       <div
         style={{
@@ -77,9 +79,9 @@ export const ProductAfterSaleSection = () => {
         }}
       >
         <img
-          src="/assets/icons/cert.png"
-          alt="Available on Finance"
-          style={{ height: "24px", marginBottom: "0.5rem" }}
+          src="/icons/lifetimeWarrantyIcon.png"
+          alt=""
+          style={{ height: "50px", marginBottom: "0.5rem" }}
         />
         <p style={{ margin: 0, fontSize: "0.8rem" }}>Available on Finance</p>
       </div>

@@ -212,7 +212,7 @@
 /* Products Grid */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   padding: 20px;
   max-width: 1873px;
@@ -455,6 +455,13 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1500px) {
+  .category-name {
+    font-size: 12px;
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 1200px) {
   .category-grid {
     flex-wrap: wrap;
@@ -483,6 +490,12 @@
 
   .warranty-button {
     align-self: stretch;
+  }
+  
+  .category-item {
+    width: 7rem;
+    aspect-ratio: 1.2;
+    height: unset;
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./DiamondFilters.css";
 import { DualRangeSlider } from "./DualRangeSlider";
+import { allDiamondShapesList } from "./DiamondFiltersModal";
 
 interface DiamondFiltersProps {
   onFiltersChange?: (filters: FilterState) => void;
@@ -10,6 +11,7 @@ interface DiamondFiltersProps {
 export interface FilterState {
   diamondType: "natural" | "lab";
   colorType: "white" | "fancy";
+  shape: string[];
   colorGrade: string[];
   clarity: string[];
   caratRange: [number, number];
@@ -28,6 +30,7 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
   const [filters, setFilters] = useState<FilterState>({
     diamondType: "natural",
     colorType: "white",
+    shape: ["Round"],
     colorGrade: [],
     clarity: [],
     caratRange: [0, 500],
@@ -56,6 +59,18 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
     updateFilters({ clarity: newClarity });
   };
 
+  const toggleArrayFilter = <T extends string>(
+    key: keyof Pick<FilterState, "shape">,
+    value: T
+  ) => {
+    setFilters((prev) => ({
+      ...prev,
+      [key]: prev[key].includes(value)
+        ? prev[key].filter((item) => item !== value)
+        : [...prev[key], value],
+    }));
+  };
+
   return (
     <div className="diamond-filters">
       <div className="filters-header">
@@ -79,6 +94,19 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="shape-grid">
+        {allDiamondShapesList.map((shape) => (
+          <button
+            key={shape.name}
+            className={`shape-option ${filters.shape.includes(shape.name) ? "selected" : ""}`}
+            onClick={() => toggleArrayFilter("shape", shape.name)}
+          >
+            <img src={shape.image} alt={shape.name} className="shape-image" />
+            <span className="shape-name">{shape.name}</span>
+          </button>
+        ))}
       </div>
 
       <div className="filter-controls">
@@ -170,7 +198,10 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
 
       <div className="filter-bottom-controls">
         <div className="left-controls">
-          <button className="advance-filter-btn" onClick={handleShowFilterModal}>
+          <button
+            className="advance-filter-btn"
+            onClick={handleShowFilterModal}
+          >
             <div>
               <span>Advance Filter</span>
               <svg className="dropdown-icon" viewBox="0 0 6 9" fill="none">
@@ -184,7 +215,7 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
         </div>
 
         <div className="right-controls">
-          <div className="quickship-control">
+          {/* <div className="quickship-control">
             <svg className="quickship-icon" viewBox="0 0 137 27" fill="none">
               <path
                 d="M38.2885 3.93587C35.9436 1.59689 32.8197 0.203118 29.5127 0.0205153C26.2058 -0.162088 22.9473 0.879259 20.3592 2.94585H10.8223C10.6416 2.94585 10.4684 3.01762 10.3406 3.14537C10.2129 3.27312 10.1411 3.44639 10.1411 3.62706C10.1411 3.80772 10.2129 3.98099 10.3406 4.10874C10.4684 4.23649 10.6416 4.30826 10.8223 4.30826H18.906C18.1513 5.11946 17.4999 6.02097 16.9668 6.99221H6.2537C6.07303 6.99221 5.89976 7.06398 5.77201 7.19173C5.64426 7.31948 5.57249 7.49275 5.57249 7.67342C5.57249 7.85408 5.64426 8.02735 5.77201 8.1551C5.89976 8.28285 6.07303 8.35462 6.2537 8.35462H16.3128C15.4882 10.379 15.1657 12.5728 15.3728 14.7489H10.8314C10.6507 14.7489 10.4775 14.8206 10.3497 14.9484C10.222 15.0761 10.1502 15.2494 10.1502 15.4301C10.1502 15.6107 10.222 15.784 10.3497 15.9118C10.4775 16.0395 10.6507 16.1113 10.8314 16.1113H15.5771C15.7522 16.9908 16.0154 17.8504 16.3628 18.6772H6.2537C6.07303 18.6772 5.89976 18.7489 5.77201 18.8767C5.64426 19.0044 5.57249 19.1777 5.57249 19.3584C5.57249 19.539 5.64426 19.7123 5.77201 19.84C5.89976 19.9678 6.07303 20.0396 6.2537 20.0396H17.0304C17.5467 20.9751 18.175 21.8444 18.9014 22.6281H4.60064C4.41997 22.6281 4.2467 22.6999 4.11895 22.8277C3.9912 22.9554 3.91943 23.1287 3.91943 23.3094C3.91943 23.49 3.9912 23.6633 4.11895 23.791C4.2467 23.9188 4.41997 23.9906 4.60064 23.9906H19.9096C20.0289 23.9891 20.146 23.9579 20.2502 23.8997C22.923 26.1162 26.3487 27.2145 29.8121 26.9652C33.2754 26.716 36.5085 25.1385 38.8364 22.5621C41.1643 19.9857 42.4069 16.6097 42.3048 13.1389C42.2027 9.66813 40.7638 6.37096 38.2885 3.93587ZM37.3258 22.0151C35.6334 23.706 33.4777 24.8573 31.1311 25.3233C28.7846 25.7893 26.3525 25.5492 24.1424 24.6332C21.9324 23.7172 20.0435 22.1666 18.7145 20.1772C17.3856 18.1879 16.6763 15.8492 16.6763 13.4569C16.6763 11.0645 17.3856 8.7258 18.7145 6.73647C20.0435 4.74715 21.9324 3.19648 24.1424 2.28051C26.3525 1.36453 28.7846 1.12437 31.1311 1.59039C33.4777 2.0564 35.6334 3.20766 37.3258 4.89864C39.5912 7.17072 40.8633 10.2483 40.8633 13.4569C40.8633 16.6654 39.5912 19.743 37.3258 22.0151Z"
@@ -200,7 +231,7 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
               />
             </svg>
             <span>Quickship</span>
-          </div>
+          </div> */}
 
           <div className="sort-control">
             <span className="sort-label">Sort : </span>
